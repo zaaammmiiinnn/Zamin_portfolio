@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar";
 import HeroSection from "@/components/hero";
 import AboutSection from "@/components/about";
 import ProjectsSection from "@/components/projects";
+import GitHubActivity from "@/components/github-activity";
 import LeetCodeStats from "@/components/leetcode-stats";
 import ExperienceSection from "@/components/experience";
 import ContactSection from "@/components/contact";
@@ -18,6 +19,7 @@ export default function Home() {
       <AboutSection />
       <ProjectsSection />
       <LeetCodeStats />
+      <GitHubActivity />
       <ExperienceSection />
       <ContactSection />
       <Footer />

@@ -24,6 +24,7 @@ export default function Navbar() {
         { name: "About", href: "#about" },
         { name: "Projects", href: "#projects" },
         { name: "LeetCode", href: "#leetcode" },
+        { name: "GitHub", href: "#github" },
         { name: "Experience", href: "#experience" },
         { name: "Contact", href: "#contact" },
     ];
