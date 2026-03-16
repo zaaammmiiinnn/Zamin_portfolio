@@ -23,6 +23,7 @@ export default function Navbar() {
     const navLinks = [
         { name: "About", href: "#about" },
         { name: "Projects", href: "#projects" },
+        { name: "LeetCode", href: "#leetcode" },
         { name: "Experience", href: "#experience" },
         { name: "Contact", href: "#contact" },
     ];
@@ -35,8 +36,8 @@ export default function Navbar() {
             animate={{ y: 0 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-                    ? "py-4 bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
-                    : "py-6 bg-transparent"
+                ? "py-4 bg-background/80 backdrop-blur-md border-b border-border shadow-sm"
+                : "py-6 bg-transparent"
                 }`}
         >
             <div className="container mx-auto px-4 md:px-6 max-w-6xl flex items-center justify-between">
