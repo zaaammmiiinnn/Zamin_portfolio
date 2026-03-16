@@ -5,11 +5,25 @@ import { FaExternalLinkAlt, FaAward } from "react-icons/fa";
 
 const certifications = [
     {
-        title: "NxtWave Masterclass Certificate",
-        organization: "NxtWave",
-        issueDate: "", // Can add actual date here if needed
+        title: "Full Stack Development",
+        organization: "100xDevs",
+        issueDate: "",
+        credentialUrl: "https://drive.google.com/file/d/1fsGcY7wVvXr38EUeJvsTCkfu4MRSlWVY/view?usp=drive_link",
+        image: ""
+    },
+    {
+        title: "Applying Text Embedding in LLMs Systems",
+        organization: "Flipkart x Nxtwave",
+        issueDate: "",
         credentialUrl: "https://s3-ap-south-1.amazonaws.com/poster-generation-backend-nxtwave-media-static/ccbp_beta/NIAT_MASTERCLASS_CERTIFICATES/19O1F5KLDI.png",
         image: "https://s3-ap-south-1.amazonaws.com/poster-generation-backend-nxtwave-media-static/ccbp_beta/NIAT_MASTERCLASS_CERTIFICATES/19O1F5KLDI.png"
+    },
+    {
+        title: "AWS Cloud Practitioner",
+        organization: "Amazon Web Services",
+        issueDate: "",
+        credentialUrl: "",
+        image: ""
     }
 ];
 

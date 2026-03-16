@@ -5,40 +5,26 @@ import { FaGraduationCap, FaBriefcase } from "react-icons/fa";
 
 const experiences = [
     {
-        type: "work",
-        title: "Full Stack Developer Intern",
-        organization: "Tech Innovators Inc.",
-        date: "May 2025 - Aug 2025",
-        description: [
-            "Developed a robust real-time collaborative dashboard using Next.js and WebSockets.",
-            "Optimized database queries in PostgreSQL, reducing average API response time by 40%.",
-            "Collaborated with cross-functional teams to integrate AI-driven analytics features.",
-        ],
-        icon: FaBriefcase,
-    },
-    {
         type: "education",
-        title: "B.S. in Computer Science",
-        organization: "University of Technology",
-        date: "Aug 2022 - May 2026",
+        title: "Computer Science - AI & Data Science",
+        organization: "Nxtwave Institute of Advanced Technologies, Noida",
+        date: "2025 - 2029",
         description: [
-            "Concentration in Artificial Intelligence and Software Engineering.",
-            "Relevant Coursework: Data Structures, Algorithms, Machine Learning, Operating Systems.",
-            "President of the AI Student Chapter: Organized hackathons and weekly tech talks.",
+            "Currently enrolled in computer science degree with specialization in Artificial intelligence and data science.",
+            "Focus on software engineering.",
         ],
         icon: FaGraduationCap,
     },
     {
-        type: "work",
-        title: "Software Engineering Fellow",
-        organization: "Open Source Initiative",
-        date: "Jan 2024 - May 2024",
+        type: "education",
+        title: "Minor in CS - AI & Drone Specialization",
+        organization: "Tihan IIT Hyderabad",
+        date: "2025 - 2026",
         description: [
-            "Contributed to major open-source repositories focused on developer tooling.",
-            "Implemented automated testing pipelines using GitHub Actions, increasing code coverage by 25%.",
-            "Mentored incoming developers on git workflows and best coding practices.",
+            "Currently enrolled in minor degree of computer science with specialization in Artificial intelligence and Drone Specialization.",
+            "Focus on software engineering.",
         ],
-        icon: FaBriefcase,
+        icon: FaGraduationCap,
     },
 ];
 

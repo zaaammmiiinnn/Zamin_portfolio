@@ -29,11 +29,10 @@ export default function AboutSection() {
     };
 
     const skills = [
-        { name: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"] },
-        { name: "Backend", items: ["Node.js", "Express", "Python", "FastAPI", "GraphQL"] },
-        { name: "Database", items: ["MongoDB", "PostgreSQL", "Redis", "Prisma"] },
-        { name: "DevOps & Tools", items: ["Docker", "AWS", "Git", "Linux", "CI/CD"] },
-        { name: "AI & ML", items: ["PyTorch", "TensorFlow", "Pandas", "LangChain", "OpenAI API"] },
+        { name: "Frontend", items: ["JavaScript", "HTML5", "CSS3", "TailwindCSS"] },
+        { name: "Backend", items: ["Node.js", "Express.js", "Python", "C++", "REST APIs"] },
+        { name: "Database", items: ["SQLite", "PostgreSQL", "MySQL"] },
+        { name: "Tools & Others", items: ["Git", "GitHub"] },
     ];
 
     const floatingIcons = [
@@ -69,13 +68,13 @@ export default function AboutSection() {
                         {/* Bio Text */}
                         <motion.div variants={itemVariants} className="space-y-6 text-lg text-muted-foreground leading-relaxed">
                             <p>
-                                Hello! I'm <strong className="text-foreground">Zamin Askari Rizvi</strong>, a passionate Software Engineer and AI enthusiast dedicated to building remarkable digital experiences.
+                                Hello! I'm <strong className="text-foreground">Zamin Askari Rizvi</strong>, a Data Science Engineer and tech enthusiast!
                             </p>
                             <p>
-                                My journey began with a deep curiosity for how things work under the hood, leading me to explore full-stack development. Today, I specialize in architecting scalable backend systems, designing intuitive frontends, and integrating machine learning models into robust web applications.
+                                I've been passionate about technology since childhood. What started as a hobby turned into a career that I absolutely love.
                             </p>
                             <p>
-                                When I'm not coding, you'll find me exploring the latest advancements in artificial intelligence, contributing to open-source projects, or optimizing my personal productivity workflows.
+                                I believe in clean, efficient code and user-centered design. Every project is an opportunity to solve problems creatively. Honesty, quality, and continuous learning drive my work. I'm committed to delivering excellence in every project.
                             </p>
                         </motion.div>
 
