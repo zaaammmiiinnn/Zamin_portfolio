@@ -25,6 +25,14 @@ export default function Footer() {
                         LinkedIn
                     </a>
                     <a
+                        href="https://leetcode.com/u/zaminaskari"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                        LeetCode
+                    </a>
+                    <a
                         href="mailto:contact@zaminaskari.com"
                         className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 
 export default function HeroSection() {
     const containerVariants = {
@@ -111,6 +112,15 @@ export default function HeroSection() {
                             aria-label="LinkedIn Profile"
                         >
                             <FaLinkedin className="w-6 h-6" />
+                        </a>
+                        <a
+                            href="https://leetcode.com/u/zaminaskari"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="hover:text-foreground transition-colors p-2"
+                            aria-label="LeetCode Profile"
+                        >
+                            <SiLeetcode className="w-6 h-6" />
                         </a>
                         <a
                             href="mailto:contact@zaminaskari.com"

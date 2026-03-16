@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { FaPaperPlane, FaSpinner } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 import { toast } from "sonner";
 
 const contactSchema = z.object({
@@ -158,6 +159,18 @@ export default function ContactSection() {
                                         <h4 className="font-semibold text-foreground">LinkedIn</h4>
                                         <a href="https://linkedin.com/in/zaminaskari" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline mt-1 block">
                                             linkedin.com/in/zaminaskari
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4 p-4 rounded-xl bg-secondary/50 border border-border">
+                                    <div className="p-3 bg-background rounded-full shrink-0">
+                                        <SiLeetcode className="w-6 h-6 text-primary" />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-semibold text-foreground">LeetCode</h4>
+                                        <a href="https://leetcode.com/u/zaminaskari" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline mt-1 block">
+                                            leetcode.com/u/zaminaskari
                                         </a>
                                     </div>
                                 </div>
