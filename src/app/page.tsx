@@ -5,7 +5,7 @@ import HeroSection from "@/components/hero";
 import AboutSection from "@/components/about";
 import ProjectsSection from "@/components/projects";
 import GitHubActivity from "@/components/github-activity";
-import LeetCodeStats from "@/components/leetcode-stats";
+import LeetCodeStats from "@/components/LeetCodeStats";
 import ExperienceSection from "@/components/experience";
 import ContactSection from "@/components/contact";
 import Footer from "@/components/footer";
