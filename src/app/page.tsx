@@ -7,6 +7,7 @@ import ProjectsSection from "@/components/projects";
 import GitHubActivity from "@/components/github-activity";
 import LeetCodeStats from "@/components/LeetCodeStats";
 import ExperienceSection from "@/components/experience";
+import CertificationsSection from "@/components/certifications";
 import ContactSection from "@/components/contact";
 import Footer from "@/components/footer";
 import { Toaster } from "sonner";
@@ -21,6 +22,7 @@ export default function Home() {
       <LeetCodeStats />
       <GitHubActivity />
       <ExperienceSection />
+      <CertificationsSection />
       <ContactSection />
       <Footer />
       <Toaster position="bottom-right" theme="system" />
