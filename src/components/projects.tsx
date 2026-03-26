@@ -20,14 +20,6 @@ const projects = [
         demo: "https://netflix-clone-pink-ten-27.vercel.app/",
         featured: true,
     },
-    {
-        title: "Shia.org",
-        description: "A website with all the details and history of Shi'ism.",
-        tags: ["Web Development"],
-        github: "https://github.com/zaaammmiiinnn/Shia.org",
-        demo: "https://shia-org.vercel.app/",
-        featured: false,
-    },
 ];
 
 export default function ProjectsSection() {
