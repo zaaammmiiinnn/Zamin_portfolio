@@ -51,7 +51,7 @@ interface AggregatedStats {
 }
 
 const CACHE_KEY_PREFIX = "zar_github_";
-const CACHE_TTL = 60 * 60 * 1000; // 1 hour
+const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
 
 export default function GitHubActivity() {
     const [heatmapData, setHeatmapData] = useState<ContributionDay[]>([]);
