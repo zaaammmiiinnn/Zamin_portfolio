@@ -230,7 +230,7 @@ export default function LeetCodeStats() {
 
     if (error) {
         return (
-            <section className="py-24 bg-background relative overflow-hidden">
+            <section className="py-24 bg-[#050505] relative overflow-hidden">
                 <div className="container px-4 md:px-6 mx-auto max-w-6xl text-center">
                     <p className="text-muted-foreground">Unable to load LeetCode statistics at this time.</p>
                 </div>
@@ -239,7 +239,7 @@ export default function LeetCodeStats() {
     }
 
     return (
-        <section id="leetcode" className="py-24 bg-background relative overflow-hidden">
+        <section id="leetcode" className="py-24 bg-[#050505] relative overflow-hidden">
             <div className="container px-4 md:px-6 mx-auto max-w-6xl">
                 <motion.div
                     initial="hidden"

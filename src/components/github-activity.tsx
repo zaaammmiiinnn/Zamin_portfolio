@@ -246,7 +246,7 @@ export default function GitHubActivity() {
     if (error) return null;
 
     return (
-        <section id="github" className="py-24 bg-background relative overflow-hidden">
+        <section id="github" className="py-24 bg-[#050505] relative overflow-hidden">
             <div className="container px-4 md:px-6 mx-auto max-w-6xl">
                 <motion.div
                     initial="hidden"

@@ -46,7 +46,7 @@ export default function CertificationsSection() {
     };
 
     return (
-        <section id="certifications" className="py-24 bg-secondary/30 relative">
+        <section id="certifications" className="py-24 bg-[#050505] relative">
             <div className="container px-4 md:px-6 mx-auto max-w-6xl">
                 <motion.div
                     initial="hidden"

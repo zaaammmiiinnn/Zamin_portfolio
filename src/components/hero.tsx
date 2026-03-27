@@ -105,7 +105,7 @@ export default function HeroSection() {
                             <FaGithub className="w-6 h-6" />
                         </a>
                         <a
-                            href="https://linkedin.com/in/zaminaskari"
+                            href="https://www.linkedin.com/in/zamin-askari-rizvi/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hover:text-foreground transition-colors p-2"
@@ -114,7 +114,7 @@ export default function HeroSection() {
                             <FaLinkedin className="w-6 h-6" />
                         </a>
                         <a
-                            href="https://leetcode.com/u/zaminaskari"
+                            href="https://leetcode.com/u/zaaammmiiinnn/"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="hover:text-foreground transition-colors p-2"
@@ -123,7 +123,7 @@ export default function HeroSection() {
                             <SiLeetcode className="w-6 h-6" />
                         </a>
                         <a
-                            href="mailto:contact@zaminaskari.com"
+                            href="mailto:zaminaskari.work@gmail.com"
                             className="hover:text-foreground transition-colors p-2"
                             aria-label="Email Me"
                         >
