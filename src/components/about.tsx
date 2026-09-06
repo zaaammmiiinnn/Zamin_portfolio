@@ -27,10 +27,10 @@ export default function AboutSection() {
     };
 
     const skills = [
-        { name: "Frontend", items: ["JavaScript", "HTML5", "CSS3", "TailwindCSS"] },
-        { name: "Backend", items: ["Node.js", "Express.js", "Python", "C++", "REST APIs"] },
-        { name: "Database", items: ["SQLite", "PostgreSQL", "MySQL"] },
-        { name: "Tools & Others", items: ["Git", "GitHub"] },
+        { name: "Data Analytics", items: ["Pandas", "NumPy", "Matplotlib", "Data Visualization", "Tableau/PowerBI"] },
+        { name: "Backend & Dev", items: ["Python", "Node.js", "REST APIs", "C++"] },
+        { name: "Database", items: ["PostgreSQL", "MySQL", "SQLite", "MongoDB"] },
+        { name: "Tools & Others", items: ["Git", "Jupyter", "Docker"] },
     ];
 
     const techIcons = [
@@ -77,13 +77,13 @@ export default function AboutSection() {
                         <motion.div variants={itemVariants} className="space-y-5">
                             <div className="glass-card rounded-2xl p-8 space-y-4">
                                 <p className="text-white/60 leading-relaxed">
-                                    Hello! I&apos;m <strong className="text-white/90">Zamin Askari Rizvi</strong>, a Data Science Engineer and tech enthusiast!
+                                    Hello! I&apos;m <strong className="text-white/90">Zamin Askari Rizvi</strong>, a Data Analyst and AI Developer!
                                 </p>
                                 <p className="text-white/50 leading-relaxed text-sm">
-                                    I&apos;ve been passionate about technology since childhood. What started as a hobby turned into a career that I absolutely love.
+                                    I specialize in transforming complex data into actionable insights. With a strong foundation in data science and software engineering, I bridge the gap between analytics and real-world applications.
                                 </p>
                                 <p className="text-white/50 leading-relaxed text-sm">
-                                    I believe in clean, efficient code and user-centered design. Every project is an opportunity to solve problems creatively. Honesty, quality, and continuous learning drive my work.
+                                    I believe in data-driven decision-making and continuous learning. Every dataset is an opportunity to uncover patterns and solve problems creatively.
                                 </p>
                             </div>
                         </motion.div>

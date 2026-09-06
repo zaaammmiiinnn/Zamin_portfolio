@@ -62,15 +62,15 @@ export default function HeroSection() {
                         variants={itemVariants}
                         className="text-2xl md:text-3xl font-medium text-muted-foreground"
                     >
-                        Software Engineer & AI Developer
+                        Data Analyst & AI Developer
                     </motion.h2>
 
                     <motion.p
                         variants={itemVariants}
                         className="max-w-[600px] mx-auto text-lg text-muted-foreground leading-relaxed"
                     >
-                        I build scalable web applications and intelligent systems. Passionate
-                        about turning complex problems into elegant, user-centric solutions.
+                        I analyze complex datasets to extract actionable insights and build intelligent systems. Passionate
+                        about leveraging data and predictive modeling to drive decision-making.
                     </motion.p>
 
                     <motion.div

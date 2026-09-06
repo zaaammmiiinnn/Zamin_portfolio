@@ -1,22 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaBriefcase } from "react-icons/fa";
+import { FaGraduationCap } from "react-icons/fa";
 
-const experiences = [
+const educations = [
     {
-        type: "work",
-        title: "Data Analytics Intern",
-        organization: "Auctech Marketing Communication Pvt. Ltd.",
-        date: "Jan 2026 - Jun 2026",
+        type: "education",
+        title: "Computer Science - AI & Data Science",
+        organization: "Nxtwave Institute of Advanced Technologies, Noida",
+        date: "2025 - 2029",
         description: [
-            "Demonstrated dedication, analytical thinking, and professionalism while working on data analysis.",
-            "Focused on data interpretation, reporting, and delivering insights for assigned analytical projects.",
+            "Currently enrolled in computer science degree with specialization in Artificial intelligence and data science.",
+            "Focus on software engineering.",
         ],
-        icon: FaBriefcase,
+        icon: FaGraduationCap,
+    },
+    {
+        type: "education",
+        title: "Minor in CS - AI & Drone Specialization",
+        organization: "Tihan IIT Hyderabad",
+        date: "2025 - 2026",
+        description: [
+            "Currently enrolled in minor degree of computer science with specialization in Artificial intelligence and Drone Specialization.",
+            "Focus on software engineering.",
+        ],
+        icon: FaGraduationCap,
+    },
 ];
 
-export default function ExperienceSection() {
+export default function EducationSection() {
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -35,7 +47,7 @@ export default function ExperienceSection() {
     };
 
     return (
-        <section id="experience" className="py-24 bg-[#050505] relative overflow-hidden">
+        <section id="education" className="py-24 bg-[#050505] relative overflow-hidden">
             <div className="container px-4 md:px-6 mx-auto max-w-4xl relative z-10">
                 <motion.div
                     initial="hidden"
@@ -56,17 +68,17 @@ export default function ExperienceSection() {
                             variants={itemVariants}
                             className="text-3xl md:text-5xl font-bold tracking-tight text-white/90"
                         >
-                            Experience
+                            Education
                         </motion.h2>
                         <motion.div variants={itemVariants} className="w-16 h-0.5 bg-blue-500/40 mx-auto rounded-full" />
                         <motion.p variants={itemVariants} className="text-white/40 text-base max-w-2xl mx-auto pt-2">
-                            My academic and professional journey.
+                            My academic background.
                         </motion.p>
                     </div>
 
                     {/* Timeline */}
                     <div className="relative border-l border-blue-500/20 pl-8 ml-4 md:ml-0 space-y-8">
-                        {experiences.map((exp, index) => (
+                        {educations.map((exp, index) => (
                             <motion.div key={index} variants={itemVariants} className="relative">
                                 {/* Timeline dot/icon */}
                                 <div className="absolute -left-[41px] top-2 h-8 w-8 flex items-center justify-center rounded-full border border-blue-500/30 bg-[#0a0a0a] shadow-[0_0_12px_rgba(59,130,246,0.15)]">

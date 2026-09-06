@@ -1,32 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaBrain, FaCode, FaLayerGroup, FaPaintBrush } from "react-icons/fa";
+import { FaBrain, FaCode, FaChartBar, FaDatabase } from "react-icons/fa";
 
 const expertiseItems = [
     {
-        icon: FaBrain,
-        title: "AI Engineering",
+        icon: FaChartBar,
+        title: "Data Analytics & Visualization",
         description:
-            "Building intelligent systems, GANs, and real-time AI integrations. Cutting-edge AI tools and automation.",
+            "Extracting actionable insights from complex datasets and building interactive dashboards.",
+    },
+    {
+        icon: FaBrain,
+        title: "Machine Learning",
+        description:
+            "Developing predictive models and leveraging data to drive decision-making.",
+    },
+    {
+        icon: FaDatabase,
+        title: "Data Engineering",
+        description:
+            "Designing and managing robust data pipelines and scalable database architectures.",
     },
     {
         icon: FaCode,
-        title: "Full Stack Development",
+        title: "Software Engineering",
         description:
             "Creating scalable, production-ready applications and end-to-end systems with modern frameworks.",
-    },
-    {
-        icon: FaLayerGroup,
-        title: "Frontend Architecture",
-        description:
-            "Crafting complex interfaces, modern React apps and micro-animations for state-of-the-art UIs.",
-    },
-    {
-        icon: FaPaintBrush,
-        title: "UI/UX Engineering",
-        description:
-            "Designing precise, pixel-perfect interfaces that bridge design and engineering seamlessly.",
     },
 ];
 

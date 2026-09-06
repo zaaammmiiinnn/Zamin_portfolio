@@ -6,9 +6,9 @@ import Overlay from "@/components/Overlay";
 import AboutSection from "@/components/about";
 import ExpertiseGrid from "@/components/ExpertiseGrid";
 import ProjectsSection from "@/components/projects";
-import GitHubActivity from "@/components/github-activity";
 import LeetCodeStats from "@/components/LeetCodeStats";
 import ExperienceSection from "@/components/experience";
+import EducationSection from "@/components/education";
 import CertificationsSection from "@/components/certifications";
 import ContactSection from "@/components/contact";
 import Footer from "@/components/footer";
@@ -29,8 +29,8 @@ export default function Home() {
             <ExpertiseGrid />
             <ProjectsSection />
             <LeetCodeStats />
-            <GitHubActivity />
             <ExperienceSection />
+            <EducationSection />
             <CertificationsSection />
             <ContactSection />
             <Footer />

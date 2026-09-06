@@ -5,6 +5,13 @@ import { FaExternalLinkAlt, FaAward } from "react-icons/fa";
 
 const certifications = [
     {
+        title: "Data Analytics Intern",
+        organization: "Auctech Marketing Communication Pvt. Ltd.",
+        issueDate: "05 August 2026",
+        credentialUrl: "/auctech-certificate.png",
+        image: "/auctech-certificate.png"
+    },
+    {
         title: "Full Stack Development",
         organization: "100xDevs",
         issueDate: "",
