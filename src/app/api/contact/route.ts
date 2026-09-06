@@ -26,15 +26,20 @@ export async function POST(req: Request) {
 
         const { name, email, message } = validatedData.data;
 
-        // Connect to database
-        await connectToDatabase();
+        let newContact = null;
+        try {
+            // Connect to database
+            await connectToDatabase();
 
-        // Save to database
-        const newContact = await Contact.create({
-            name,
-            email,
-            message,
-        });
+            // Save to database
+            newContact = await Contact.create({
+                name,
+                email,
+                message,
+            });
+        } catch (dbError) {
+            console.error('Database connection failed (ignoring so email can still send):', dbError);
+        }
 
         // Send notification email to the owner
         const mailOptions = {
