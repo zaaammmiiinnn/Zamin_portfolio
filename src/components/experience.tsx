@@ -14,6 +14,7 @@ const experiences = [
             "Focused on data interpretation, reporting, and delivering insights for assigned analytical projects.",
         ],
         icon: FaBriefcase,
+    }
 ];
 
 export default function ExperienceSection() {
