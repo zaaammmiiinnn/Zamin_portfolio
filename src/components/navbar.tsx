@@ -17,6 +17,7 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
+        { name: "AI Demo", href: "#demo" },
         { name: "About", href: "#about" },
         { name: "Expertise", href: "#expertise" },
         { name: "Projects", href: "#projects" },

@@ -8,13 +8,13 @@ const expertiseItems = [
         icon: FaChartBar,
         title: "Data Analytics & Visualization",
         description:
-            "Extracting actionable insights from complex datasets and building interactive dashboards.",
+            "Building interactive dashboards, analytics workflows, and clear metrics from complex datasets.",
     },
     {
         icon: FaBrain,
         title: "Machine Learning",
         description:
-            "Developing predictive models and leveraging data to drive decision-making.",
+            "Designing, training, and deploying intelligent models and inference pipelines for production environments.",
     },
     {
         icon: FaDatabase,

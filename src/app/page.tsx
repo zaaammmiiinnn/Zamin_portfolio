@@ -1,8 +1,8 @@
 "use client";
 
 import Navbar from "@/components/navbar";
-import ScrollyCanvas from "@/components/ScrollyCanvas";
-import Overlay from "@/components/Overlay";
+import BentoGrid from "@/components/BentoGrid";
+import LiveAIDemo from "@/components/LiveAIDemo";
 import AboutSection from "@/components/about";
 import ExpertiseGrid from "@/components/ExpertiseGrid";
 import ProjectsSection from "@/components/projects";
@@ -19,15 +19,17 @@ export default function Home() {
         <div className="flex flex-col min-h-screen bg-[#050505]">
             <Navbar />
 
-            {/* Scrollytelling Hero */}
-            <div className="relative">
-                <ScrollyCanvas />
-                <Overlay />
-            </div>
+            {/* Modern Bento Grid Hero & Overview */}
+            <BentoGrid />
+
+            {/* Live AI Demo Section */}
+            <LiveAIDemo />
+
+            {/* Projects Section */}
+            <ProjectsSection />
 
             <AboutSection />
             <ExpertiseGrid />
-            <ProjectsSection />
             <LeetCodeStats />
             <ExperienceSection />
             <EducationSection />

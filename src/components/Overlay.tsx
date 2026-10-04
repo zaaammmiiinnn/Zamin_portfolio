@@ -52,18 +52,18 @@ export default function Overlay() {
                         Software Engineer & AI Developer
                     </motion.span>
 
-                    <h1 className="text-glow-blue">
+                    <h1 className="text-glow-blue max-w-5xl">
                         <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white/90 leading-[1.05]">
-                            Building intelligent
+                            I build
                         </span>
                         <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[1.05] mt-1">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400">
-                                systems
+                                AI-powered
                             </span>
-                            <span className="text-white/90"> that</span>
+                            <span className="text-white/90"> applications</span>
                         </span>
                         <span className="block text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white/90 leading-[1.05] mt-1">
-                            feel alive.
+                            that solve real-world problems.
                         </span>
                     </h1>
 
@@ -87,28 +87,27 @@ export default function Overlay() {
                     </div>
                 </motion.div>
 
-                {/* Section 2: "I build digital experiences" — Left */}
+                {/* Section 2: "Engineering Focus" — Left */}
                 <motion.div
                     style={{ opacity: s2Opacity, y: s2Y }}
                     className="absolute inset-0 flex flex-col justify-center px-8 sm:px-12 md:px-24 lg:px-32"
                 >
                     <span className="text-[11px] font-semibold tracking-[0.25em] uppercase text-blue-400/70 mb-4">
-                        About Me
+                        Engineering Focus
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white/90 leading-tight max-w-3xl text-glow-blue">
-                        I build
+                        From modern models
                         <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                            digital experiences.
+                            to full-stack scale.
                         </span>
                     </h2>
-                    <p className="mt-6 text-sm sm:text-base md:text-lg text-white/35 max-w-lg leading-relaxed font-light">
-                        Scalable web applications and intelligent systems
-                        that turn complex problems into elegant solutions.
+                    <p className="mt-6 text-sm sm:text-base md:text-lg text-white/45 max-w-lg leading-relaxed font-light">
+                        Specializing in integrating modern AI models (like NVIDIA Nemotron) into full-stack web applications that are responsive, robust, and built for real users.
                     </p>
                 </motion.div>
 
-                {/* Section 3: "Bridging design & engineering" — Right */}
+                {/* Section 3: "Bridging AI & Engineering" — Right */}
                 <motion.div
                     style={{ opacity: s3Opacity, y: s3Y }}
                     className="absolute inset-0 flex flex-col justify-center items-end px-8 sm:px-12 md:px-24 lg:px-32 text-right"
@@ -117,15 +116,14 @@ export default function Overlay() {
                         My Approach
                     </span>
                     <h2 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white/90 leading-tight max-w-3xl text-glow-blue">
-                        Bridging
+                        Engineering with
                         <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                            design & engineering.
+                            clarity & purpose.
                         </span>
                     </h2>
-                    <p className="mt-6 text-sm sm:text-base md:text-lg text-white/35 max-w-lg leading-relaxed font-light">
-                        Clean, efficient code meets user-centered design.
-                        Every project is an opportunity to create something exceptional.
+                    <p className="mt-6 text-sm sm:text-base md:text-lg text-white/45 max-w-lg leading-relaxed font-light">
+                        Clean code, robust architecture, and thoughtful interfaces that deliver dependable, production-ready results.
                     </p>
                 </motion.div>
 

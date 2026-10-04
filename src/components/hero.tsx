@@ -50,27 +50,27 @@ export default function HeroSection() {
 
                     <motion.h1
                         variants={itemVariants}
-                        className="text-5xl md:text-7xl font-bold tracking-tighter"
+                        className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight max-w-4xl"
                     >
-                        Hi, I'm{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/60">
-                            Zamin Askari Rizvi
-                        </span>
+                        I build{" "}
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
+                            AI-powered applications
+                        </span>{" "}
+                        that solve real-world problems.
                     </motion.h1>
 
                     <motion.h2
                         variants={itemVariants}
-                        className="text-2xl md:text-3xl font-medium text-muted-foreground"
+                        className="text-xl md:text-2xl font-medium text-muted-foreground"
                     >
-                        Data Analyst & AI Developer
+                        Software Engineer & AI Developer
                     </motion.h2>
 
                     <motion.p
                         variants={itemVariants}
-                        className="max-w-[600px] mx-auto text-lg text-muted-foreground leading-relaxed"
+                        className="max-w-[620px] mx-auto text-base sm:text-lg text-muted-foreground leading-relaxed"
                     >
-                        I analyze complex datasets to extract actionable insights and build intelligent systems. Passionate
-                        about leveraging data and predictive modeling to drive decision-making.
+                        I specialize in integrating modern AI models (like NVIDIA Nemotron) into full-stack applications. Focused on building reliable, performant systems that solve real problems.
                     </motion.p>
 
                     <motion.div

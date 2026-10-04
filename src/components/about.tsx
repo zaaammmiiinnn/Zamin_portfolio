@@ -76,14 +76,14 @@ export default function AboutSection() {
                         {/* Bio */}
                         <motion.div variants={itemVariants} className="space-y-5">
                             <div className="glass-card rounded-2xl p-8 space-y-4">
-                                <p className="text-white/60 leading-relaxed">
-                                    Hello! I&apos;m <strong className="text-white/90">Zamin Askari Rizvi</strong>, a Data Analyst and AI Developer!
+                                <p className="text-white/80 leading-relaxed text-base">
+                                    I&apos;m <strong className="text-white">Zamin Askari Rizvi</strong>, a software engineer and AI developer focused on building practical, high-performance web applications.
                                 </p>
-                                <p className="text-white/50 leading-relaxed text-sm">
-                                    I specialize in transforming complex data into actionable insights. With a strong foundation in data science and software engineering, I bridge the gap between analytics and real-world applications.
+                                <p className="text-white/60 leading-relaxed text-sm">
+                                    I specialize in integrating modern AI models (like NVIDIA Nemotron) into full-stack applications, connecting cutting-edge inference pipelines with intuitive user experiences.
                                 </p>
-                                <p className="text-white/50 leading-relaxed text-sm">
-                                    I believe in data-driven decision-making and continuous learning. Every dataset is an opportunity to uncover patterns and solve problems creatively.
+                                <p className="text-white/60 leading-relaxed text-sm">
+                                    From designing scalable backend architectures to crafting responsive frontends, I care about clean code, system reliability, and building tools that solve genuine problems.
                                 </p>
                             </div>
                         </motion.div>
