@@ -80,7 +80,7 @@ export default function AboutSection() {
                                     I&apos;m <strong className="text-white">Zamin Askari Rizvi</strong>, a software engineer and AI developer focused on building practical, high-performance web applications.
                                 </p>
                                 <p className="text-white/60 leading-relaxed text-sm">
-                                    I specialize in integrating modern AI models (like NVIDIA Nemotron) into full-stack applications, connecting cutting-edge inference pipelines with intuitive user experiences.
+                                    I specialize in integrating modern machine learning models into full-stack applications, connecting cutting-edge inference pipelines with intuitive user experiences.
                                 </p>
                                 <p className="text-white/60 leading-relaxed text-sm">
                                     From designing scalable backend architectures to crafting responsive frontends, I care about clean code, system reliability, and building tools that solve genuine problems.

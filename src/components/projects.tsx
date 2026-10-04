@@ -27,7 +27,7 @@ export const projectsData: ProjectItem[] = [
         title: "AI Resume Analyzer",
         description:
             "An intelligent evaluation engine that parses candidate resumes and scores competencies against job requisitions. Utilizes semantic embeddings and automated NLP pipelines to pinpoint skill gaps with high precision.",
-        technologies: ["Python", "NLP", "FastAPI", "OpenAI / Nemotron", "Streamlit"],
+        technologies: ["Python", "NLP", "FastAPI", "LLMs & Embeddings", "Streamlit"],
         link: "https://github.com/zaaammmiiinnn/AI-resume-analyzer",
         github: "https://github.com/zaaammmiiinnn/AI-resume-analyzer",
         featuredTag: "AI / NLP",

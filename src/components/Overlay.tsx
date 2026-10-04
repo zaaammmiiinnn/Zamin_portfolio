@@ -74,7 +74,7 @@ export default function Overlay() {
                     <div className="flex gap-3 mt-8 pointer-events-auto">
                         <a
                             href="#projects"
-                            className="px-6 py-2.5 rounded-full bg-blue-500 text-white font-medium text-sm hover:bg-blue-400 transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]"
+                            className="px-6 py-2.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500 text-white font-medium text-sm transition-all duration-300 shadow-[0_0_25px_rgba(99,102,241,0.4)] hover:shadow-[0_0_35px_rgba(147,51,234,0.5)]"
                         >
                             View Projects
                         </a>
@@ -103,7 +103,7 @@ export default function Overlay() {
                         </span>
                     </h2>
                     <p className="mt-6 text-sm sm:text-base md:text-lg text-white/45 max-w-lg leading-relaxed font-light">
-                        Specializing in integrating modern AI models (like NVIDIA Nemotron) into full-stack web applications that are responsive, robust, and built for real users.
+                        Specializing in integrating modern machine learning models into full-stack web applications that are responsive, robust, and built for real users.
                     </p>
                 </motion.div>
 

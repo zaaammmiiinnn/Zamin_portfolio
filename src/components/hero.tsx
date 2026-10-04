@@ -70,7 +70,7 @@ export default function HeroSection() {
                         variants={itemVariants}
                         className="max-w-[620px] mx-auto text-base sm:text-lg text-muted-foreground leading-relaxed"
                     >
-                        I specialize in integrating modern AI models (like NVIDIA Nemotron) into full-stack applications. Focused on building reliable, performant systems that solve real problems.
+                        I specialize in integrating modern machine learning models into full-stack applications. Focused on building reliable, performant systems that solve real problems.
                     </motion.p>
 
                     <motion.div

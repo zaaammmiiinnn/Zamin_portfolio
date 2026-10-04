@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 import {
     SiLeetcode,
-    SiNvidia,
+    SiPytorch,
     SiPython,
     SiNextdotjs,
     SiTypescript,
@@ -25,34 +25,43 @@ import {
 } from "react-icons/si";
 
 export default function BentoGrid() {
+    // Parent container with staggered child reveals
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.15,
+                staggerChildren: 0.15,
+                delayChildren: 0.1,
             },
         },
     };
 
+    // Staggered slide-up and fade-in for each card
     const cardVariants = {
-        hidden: { opacity: 0, y: 35 },
+        hidden: { opacity: 0, y: 40 },
         visible: {
             opacity: 1,
             y: 0,
             transition: {
                 type: "spring" as const,
-                stiffness: 90,
-                damping: 18,
+                stiffness: 85,
+                damping: 16,
                 mass: 0.9,
             },
         },
     };
 
+    // Common card hover animation: lifts up y: -5 with glowing shadow
+    const cardHoverAnimation = {
+        y: -5,
+        boxShadow: "0px 10px 30px rgba(0,0,0,0.5)",
+        transition: { duration: 0.25, ease: "easeOut" as const },
+    };
+
     const techPills = [
         { name: "Python", Icon: SiPython, color: "text-[#3776AB]" },
-        { name: "Nemotron", Icon: SiNvidia, color: "text-[#76B900]" },
+        { name: "PyTorch", Icon: SiPytorch, color: "text-[#EE4C2C]" },
         { name: "Next.js", Icon: SiNextdotjs, color: "text-white" },
         { name: "TypeScript", Icon: SiTypescript, color: "text-[#3178C6]" },
         { name: "React", Icon: SiReact, color: "text-[#61DAFB]" },
@@ -75,54 +84,82 @@ export default function BentoGrid() {
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
-                className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 lg:gap-6"
+                className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6"
             >
                 {/* 1. HERO CARD (Spans 2 columns on desktop) */}
                 <motion.div
                     variants={cardVariants}
-                    className="relative overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 sm:p-8 md:p-10 md:col-span-2 flex flex-col justify-between group transition-all duration-300 ease-out hover:scale-[1.01] hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_12px_40px_rgba(59,130,246,0.12)] min-h-[380px]"
+                    whileHover={cardHoverAnimation}
+                    className="relative overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 p-8 sm:p-10 md:col-span-2 flex flex-col justify-between group transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.05] min-h-[420px]"
                 >
-                    {/* Ambient Glow */}
-                    <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl group-hover:bg-blue-500/15 transition-all duration-500" />
+                    {/* Animated Glowing Orb / Gradient Blob (Top-Right) */}
+                    <motion.div
+                        animate={{
+                            scale: [1, 1.25, 1],
+                            opacity: [0.45, 0.75, 0.45],
+                            x: [0, 15, -10, 0],
+                            y: [0, -15, 10, 0],
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 8,
+                            ease: "easeInOut",
+                        }}
+                        className="pointer-events-none absolute -right-16 -top-16 h-80 w-80 rounded-full bg-[radial-gradient(circle,_rgba(99,102,241,0.4)_0%,_rgba(168,85,247,0.35)_40%,_rgba(59,130,246,0.15)_70%,_transparent_100%)] blur-3xl"
+                    />
+                    {/* Inner core shimmer for extra depth */}
+                    <motion.div
+                        animate={{
+                            scale: [0.9, 1.15, 0.9],
+                            opacity: [0.5, 0.8, 0.5],
+                        }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 5,
+                            ease: "easeInOut",
+                        }}
+                        className="pointer-events-none absolute right-2 top-2 h-44 w-44 rounded-full bg-gradient-to-br from-blue-500/30 via-indigo-500/35 to-purple-600/40 blur-2xl"
+                    />
+                    <div className="pointer-events-none absolute -left-24 -bottom-24 h-64 w-64 rounded-full bg-indigo-500/10 blur-3xl" />
 
-                    <div>
-                        {/* Status Badge */}
+                    <div className="relative z-10">
+                        {/* Status Badge with Pulsing Green Status Dot */}
                         <div className="flex items-center gap-3 mb-6">
-                            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium">
-                                <span className="relative flex h-2 w-2">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                            <span className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-medium backdrop-blur-md">
+                                <span className="relative flex h-2.5 w-2.5">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 duration-1000" />
+                                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.9)]" />
                                 </span>
                                 Available for opportunities
                             </span>
                             <span className="text-xs text-white/40 font-mono hidden sm:inline-block">
-                                Software Engineer & AI Developer
+                                Software Engineer &amp; AI Developer
                             </span>
                         </div>
 
-                        {/* Confident Headline */}
+                        {/* Confident Headline with Blue-to-Purple Gradient Accent */}
                         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white/95 leading-[1.15]">
                             I build{" "}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-300">
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-500 font-extrabold drop-shadow-[0_0_20px_rgba(99,102,241,0.3)]">
                                 AI-powered applications
                             </span>{" "}
                             that solve real-world problems.
                         </h1>
 
                         {/* First-person Bio */}
-                        <p className="mt-5 text-white/60 text-sm sm:text-base leading-relaxed max-w-2xl font-light">
+                        <p className="mt-5 text-white/65 text-sm sm:text-base leading-relaxed max-w-2xl font-light">
                             I&apos;m <strong className="text-white font-medium">Zamin Askari Rizvi</strong>. I specialize
-                            in integrating modern AI models (like NVIDIA Nemotron) into full-stack applications, connecting
+                            in integrating modern machine learning models into full-stack applications, connecting
                             efficient inference pipelines with clean, intuitive user experiences.
                         </p>
                     </div>
 
                     {/* CTAs and Social Links */}
-                    <div className="mt-8 pt-6 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-4">
+                    <div className="mt-8 pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
                             <a
                                 href="#projects"
-                                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-500 text-white font-medium text-sm hover:bg-blue-400 transition-all shadow-[0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[0_0_30px_rgba(59,130,246,0.5)]"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-500 hover:via-indigo-500 hover:to-purple-500 text-white font-medium text-sm transition-all duration-300 shadow-[0_0_25px_rgba(99,102,241,0.4)] hover:shadow-[0_0_35px_rgba(147,51,234,0.5)] active:scale-95"
                             >
                                 View Projects
                                 <FaArrowRight className="w-3 h-3" />
@@ -143,7 +180,7 @@ export default function BentoGrid() {
                                     href={href}
                                     target={href.startsWith("mailto") ? undefined : "_blank"}
                                     rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                                    className="p-2.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-white/40 hover:text-blue-400 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all duration-300"
+                                    className="p-2.5 rounded-full bg-white/[0.03] border border-white/[0.08] text-white/40 hover:text-purple-400 hover:border-purple-500/30 hover:bg-purple-500/10 transition-all duration-300"
                                     aria-label={label}
                                 >
                                     <Icon className="w-4 h-4" />
@@ -156,87 +193,89 @@ export default function BentoGrid() {
                 {/* 2. CURRENT FOCUS (Smaller cell, 1 column on desktop) */}
                 <motion.div
                     variants={cardVariants}
-                    className="relative overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 sm:p-7 md:col-span-1 flex flex-col justify-between group transition-all duration-300 ease-out hover:scale-[1.01] hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_12px_40px_rgba(59,130,246,0.12)] min-h-[380px]"
+                    whileHover={cardHoverAnimation}
+                    className="relative overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 p-8 md:col-span-1 flex flex-col justify-between group transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.05] min-h-[420px]"
                 >
                     {/* Ambient Glow */}
-                    <div className="pointer-events-none absolute -left-20 -bottom-20 h-52 w-52 rounded-full bg-cyan-500/10 blur-3xl group-hover:bg-cyan-500/15 transition-all duration-500" />
+                    <div className="pointer-events-none absolute -left-20 -bottom-20 h-60 w-60 rounded-full bg-gradient-to-tr from-purple-600/15 to-indigo-600/10 blur-3xl group-hover:scale-110 transition-transform duration-700" />
 
                     <div>
                         {/* Header Badge */}
-                        <div className="flex items-center justify-between mb-4">
-                            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.2em] uppercase text-cyan-400/80">
-                                <FaBolt className="w-3 h-3 text-cyan-400" />
+                        <div className="flex items-center justify-between mb-5">
+                            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.2em] uppercase text-purple-400/90">
+                                <FaBolt className="w-3 h-3 text-purple-400" />
                                 Current Focus
                             </span>
-                            <span className="px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/[0.08] text-[10px] text-white/50 font-mono">
-                                Active R&D
+                            <span className="px-2.5 py-0.5 rounded-md bg-white/[0.04] border border-white/[0.08] text-[10px] text-white/50 font-mono">
+                                Active R&amp;D
                             </span>
                         </div>
 
                         {/* Title */}
-                        <h2 className="text-xl sm:text-2xl font-bold text-white/90 tracking-tight">
-                            Full-Stack AI & NVIDIA Nemotron
+                        <h2 className="text-xl sm:text-2xl font-bold text-white/95 tracking-tight">
+                            Full-Stack AI &amp; Modern Web
                         </h2>
 
                         {/* Description */}
-                        <p className="mt-3 text-white/50 text-xs sm:text-sm leading-relaxed font-light">
-                            Integrating advanced reasoning models and local inference architectures into responsive full-stack applications.
+                        <p className="mt-3 text-white/55 text-xs sm:text-sm leading-relaxed font-light">
+                            Building scalable web applications and integrating machine learning models into production environments.
                         </p>
 
                         {/* Highlights List */}
-                        <div className="mt-6 space-y-2.5">
-                            <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-                                <SiNvidia className="w-4 h-4 text-[#76B900] shrink-0" />
-                                <span className="text-xs text-white/70 font-medium">
-                                    NVIDIA Nemotron Integration
+                        <div className="mt-6 space-y-3">
+                            <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
+                                <SiPytorch className="w-4 h-4 text-[#EE4C2C] shrink-0" />
+                                <span className="text-xs text-white/75 font-medium">
+                                    Machine Learning Pipelines
                                 </span>
                             </div>
-                            <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
-                                <FaBolt className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                                <span className="text-xs text-white/70 font-medium">
+                            <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
+                                <FaBolt className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                                <span className="text-xs text-white/75 font-medium">
                                     Agentic Workflow Automation
                                 </span>
                             </div>
-                            <div className="flex items-center gap-2.5 p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
+                            <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
                                 <SiNextdotjs className="w-3.5 h-3.5 text-white/80 shrink-0" />
-                                <span className="text-xs text-white/70 font-medium">
-                                    Next.js & Python Microservices
+                                <span className="text-xs text-white/75 font-medium">
+                                    Next.js &amp; Python Microservices
                                 </span>
                             </div>
                         </div>
                     </div>
 
-                    <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-white/40 font-mono">
+                    <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-white/40 font-mono">
                         <span>Architecture</span>
-                        <span className="text-cyan-400/80">API & Inference</span>
+                        <span className="text-purple-400/90">API &amp; Inference</span>
                     </div>
                 </motion.div>
 
                 {/* 3. TECH STACK (Smaller cell, 1 column on desktop) */}
                 <motion.div
                     variants={cardVariants}
-                    className="relative overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 sm:p-7 md:col-span-1 flex flex-col justify-between group transition-all duration-300 ease-out hover:scale-[1.01] hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_12px_40px_rgba(59,130,246,0.12)] min-h-[300px]"
+                    whileHover={cardHoverAnimation}
+                    className="relative overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 p-8 md:col-span-1 flex flex-col justify-between group transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.05] min-h-[340px]"
                 >
                     {/* Ambient Glow */}
-                    <div className="pointer-events-none absolute -right-20 -bottom-20 h-52 w-52 rounded-full bg-blue-500/10 blur-3xl group-hover:bg-blue-500/15 transition-all duration-500" />
+                    <div className="pointer-events-none absolute -right-20 -bottom-20 h-60 w-60 rounded-full bg-gradient-to-tl from-indigo-600/15 to-blue-600/10 blur-3xl group-hover:scale-110 transition-transform duration-700" />
 
                     <div>
                         {/* Header Badge */}
-                        <div className="flex items-center justify-between mb-4">
-                            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.2em] uppercase text-blue-400/80">
-                                <FaLayerGroup className="w-3 h-3 text-blue-400" />
+                        <div className="flex items-center justify-between mb-5">
+                            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.2em] uppercase text-indigo-400/90">
+                                <FaLayerGroup className="w-3 h-3 text-indigo-400" />
                                 Tech Stack
                             </span>
                             <a
                                 href="#about"
-                                className="text-[11px] text-white/40 hover:text-blue-400 transition-colors"
+                                className="text-[11px] text-white/40 hover:text-indigo-400 transition-colors"
                             >
                                 View all →
                             </a>
                         </div>
 
                         {/* Title */}
-                        <h2 className="text-xl sm:text-2xl font-bold text-white/90 tracking-tight mb-2">
+                        <h2 className="text-xl sm:text-2xl font-bold text-white/95 tracking-tight mb-2">
                             Core Technologies
                         </h2>
                         <p className="text-white/50 text-xs sm:text-sm font-light mb-5">
@@ -244,11 +283,11 @@ export default function BentoGrid() {
                         </p>
 
                         {/* Tech Pills Grid */}
-                        <div className="grid grid-cols-3 gap-2">
+                        <div className="grid grid-cols-3 gap-2.5">
                             {techPills.map(({ name, Icon, color }) => (
                                 <div
                                     key={name}
-                                    className="flex flex-col items-center justify-center gap-1.5 p-2 rounded-xl bg-white/[0.02] border border-white/[0.05] hover:border-blue-500/30 hover:bg-blue-500/5 transition-all duration-200"
+                                    className="flex flex-col items-center justify-center gap-1.5 p-2.5 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:border-indigo-500/30 hover:bg-indigo-500/5 transition-all duration-200"
                                 >
                                     <Icon className={`w-4 h-4 ${color}`} />
                                     <span className="text-[10px] text-white/60 font-medium tracking-tight truncate max-w-full">
@@ -259,35 +298,36 @@ export default function BentoGrid() {
                         </div>
                     </div>
 
-                    <div className="mt-5 pt-3 border-t border-white/[0.06] flex items-center justify-between text-xs text-white/40">
-                        <span>Frontend, Backend & AI</span>
-                        <span className="text-blue-400 font-mono text-[11px]">Modern Stack</span>
+                    <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-white/40">
+                        <span>Frontend, Backend &amp; AI</span>
+                        <span className="text-indigo-400 font-mono text-[11px]">Modern Stack</span>
                     </div>
                 </motion.div>
 
                 {/* 4. FEATURED PROJECT (Spanning 2 columns on desktop) */}
                 <motion.div
                     variants={cardVariants}
-                    className="relative overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 p-6 sm:p-8 md:col-span-2 flex flex-col justify-between group transition-all duration-300 ease-out hover:scale-[1.01] hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.05] hover:shadow-[0_12px_40px_rgba(59,130,246,0.12)] min-h-[300px]"
+                    whileHover={cardHoverAnimation}
+                    className="relative overflow-hidden rounded-3xl bg-white/[0.03] backdrop-blur-xl border border-white/10 p-8 sm:p-9 md:col-span-2 flex flex-col justify-between group transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.05] min-h-[340px]"
                 >
                     {/* Ambient Glow */}
-                    <div className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-teal-500/10 blur-3xl group-hover:bg-teal-500/15 transition-all duration-500" />
+                    <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-purple-600/15 via-blue-600/10 to-teal-500/10 blur-3xl group-hover:scale-110 transition-transform duration-700" />
 
                     <div>
                         {/* Header Badge */}
-                        <div className="flex items-center justify-between mb-4">
-                            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.2em] uppercase text-teal-400/80">
-                                <FaRocket className="w-3 h-3 text-teal-400" />
+                        <div className="flex items-center justify-between mb-5">
+                            <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-[0.2em] uppercase text-purple-400/90">
+                                <FaRocket className="w-3 h-3 text-purple-400" />
                                 Featured Project
                             </span>
-                            <span className="px-2.5 py-0.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-[11px] font-mono">
+                            <span className="px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/25 text-purple-300 text-[11px] font-mono">
                                 AI / NLP
                             </span>
                         </div>
 
                         {/* Title & Description */}
                         <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2">
-                            <h2 className="text-2xl sm:text-3xl font-bold text-white/90 tracking-tight">
+                            <h2 className="text-2xl sm:text-3xl font-bold text-white/95 tracking-tight">
                                 AI Resume Analyzer
                             </h2>
                             <span className="text-xs text-white/40 font-mono">Python • NLP • Evaluation Engine</span>
@@ -303,7 +343,7 @@ export default function BentoGrid() {
                             {["Python", "NLP", "Machine Learning", "Embeddings", "FastAPI", "Semantic Match"].map((tag) => (
                                 <span
                                     key={tag}
-                                    className="px-2.5 py-1 rounded-md bg-white/[0.03] border border-white/[0.06] text-white/60 text-xs font-mono"
+                                    className="px-3 py-1 rounded-lg bg-white/[0.03] border border-white/[0.07] text-white/65 text-xs font-mono"
                                 >
                                     {tag}
                                 </span>
@@ -312,7 +352,7 @@ export default function BentoGrid() {
                     </div>
 
                     {/* Footer Actions */}
-                    <div className="mt-6 pt-5 border-t border-white/[0.06] flex flex-wrap items-center justify-between gap-3">
+                    <div className="mt-8 pt-5 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3">
                         <div className="flex items-center gap-3">
                             <a
                                 href="https://github.com/zaaammmiiinnn/AI-resume-analyzer"
@@ -327,7 +367,7 @@ export default function BentoGrid() {
                         </div>
                         <a
                             href="#projects"
-                            className="inline-flex items-center gap-1.5 text-xs text-white/50 hover:text-blue-400 transition-colors font-medium"
+                            className="inline-flex items-center gap-1.5 text-xs text-purple-400/90 hover:text-purple-300 transition-colors font-medium"
                         >
                             Explore all projects
                             <FaArrowRight className="w-3 h-3" />
