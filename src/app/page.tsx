@@ -1,12 +1,9 @@
 "use client";
 
 import Navbar from "@/components/navbar";
-import BentoGrid from "@/components/BentoGrid";
-import LiveAIDemo from "@/components/LiveAIDemo";
 import AboutSection from "@/components/about";
-import ExpertiseGrid from "@/components/ExpertiseGrid";
 import ProjectsSection from "@/components/projects";
-import LeetCodeStats from "@/components/LeetCodeStats";
+import GitHubCommits from "@/components/GitHubCommits";
 import ExperienceSection from "@/components/experience";
 import EducationSection from "@/components/education";
 import CertificationsSection from "@/components/certifications";
@@ -17,7 +14,7 @@ import { Toaster } from "sonner";
 export default function Home() {
     return (
         <div className="flex flex-col min-h-screen bg-[#050505] relative selection:bg-purple-500/30 selection:text-white">
-            {/* Dark blue and purple ambient background radial gradients */}
+            {/* Ambient Dark Blue & Purple Radial Background */}
             <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
                 {/* Top Center: Deep Indigo / Blue Radial */}
                 <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1200px] h-[700px] rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(37,99,235,0.18)_0%,_rgba(79,70,229,0.12)_45%,_transparent_75%)] blur-[120px]" />
@@ -34,22 +31,27 @@ export default function Home() {
 
             <Navbar />
 
-            {/* Modern Bento Grid Hero & Overview */}
-            <BentoGrid />
-
-            {/* Live AI Demo Section */}
-            <LiveAIDemo />
+            {/* Starting Section: High-Impact Animated About Me */}
+            <AboutSection />
 
             {/* Projects Section */}
             <ProjectsSection />
 
-            <AboutSection />
-            <ExpertiseGrid />
-            <LeetCodeStats />
+            {/* GitHub Commits & Activity Section */}
+            <GitHubCommits />
+
+            {/* Experience Section */}
             <ExperienceSection />
+
+            {/* Education Section */}
             <EducationSection />
+
+            {/* Certifications Section */}
             <CertificationsSection />
+
+            {/* Contact Section */}
             <ContactSection />
+
             <Footer />
             <Toaster position="bottom-right" theme="dark" />
         </div>

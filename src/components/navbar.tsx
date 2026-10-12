@@ -17,11 +17,9 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
-        { name: "AI Demo", href: "#demo" },
         { name: "About", href: "#about" },
-        { name: "Expertise", href: "#expertise" },
         { name: "Projects", href: "#projects" },
-        { name: "LeetCode", href: "#leetcode" },
+        { name: "GitHub", href: "#github" },
         { name: "Experience", href: "#experience" },
         { name: "Education", href: "#education" },
         { name: "Certifications", href: "#certifications" },
