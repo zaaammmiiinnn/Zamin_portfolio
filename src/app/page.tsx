@@ -2,7 +2,7 @@
 
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
-import AboutSection from "@/components/about";
+import DiarySection from "@/components/DiarySection";
 import ProjectsSection from "@/components/projects";
 import GitHubCommits from "@/components/GitHubCommits";
 import ExperienceSection from "@/components/experience";
@@ -38,8 +38,8 @@ export default function Home() {
             {/* Phase 1 Reset: Monumental Signal Hero */}
             <Hero />
 
-            {/* Phase 2 Reset: Editorial Monograph & Interactive Architecture Trace */}
-            <AboutSection />
+            {/* Section 2: Pinned Engineering Diary & Sticky Notes */}
+            <DiarySection />
 
             {/* Downstream Production Sections (Preserved) */}
             <ProjectsSection />
