@@ -3,6 +3,7 @@
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import DiarySection from "@/components/DiarySection";
+import MetroSection from "@/components/MetroSection";
 import ProjectsSection from "@/components/projects";
 import GitHubCommits from "@/components/GitHubCommits";
 import ExperienceSection from "@/components/experience";
@@ -40,6 +41,9 @@ export default function Home() {
 
             {/* Section 2: Pinned Engineering Diary & Sticky Notes */}
             <DiarySection />
+
+            {/* Section 3: Pinned Metro Station & Core Competencies Billboards */}
+            <MetroSection />
 
             {/* Downstream Production Sections (Preserved) */}
             <ProjectsSection />
