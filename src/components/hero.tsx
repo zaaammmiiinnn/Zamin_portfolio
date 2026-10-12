@@ -1,153 +1,183 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
+import { motion, useReducedMotion, type Variants } from "framer-motion";
+import { FaArrowRight, FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import SignalVisual from "./SignalVisual";
 
-export default function HeroSection() {
-    const containerVariants = {
+export default function Hero() {
+    const shouldReduceMotion = useReducedMotion();
+
+    const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.3,
+                staggerChildren: shouldReduceMotion ? 0 : 0.1,
+                delayChildren: shouldReduceMotion ? 0 : 0.08,
             },
         },
     };
 
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
+    const itemVariants: Variants = {
+        hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 16 },
         visible: {
-            y: 0,
             opacity: 1,
+            y: 0,
             transition: {
-                type: "spring" as const,
-                stiffness: 100,
-                damping: 10,
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1] as const,
             },
         },
     };
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-            {/* Background decoration */}
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-50 mix-blend-multiply animate-blob"></div>
-            <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-secondary/20 rounded-full blur-3xl opacity-50 mix-blend-multiply animate-blob animation-delay-2000"></div>
+        <section
+            id="hero"
+            className="relative min-h-[100svh] w-full flex flex-col justify-between pt-32 pb-14 px-6 sm:px-12 lg:px-20 overflow-hidden bg-[#060608]"
+            aria-label="Hero Section"
+        >
+            {/* 1. Mathematical Waveform Signal Engine */}
+            <SignalVisual />
 
-            <div className="container px-4 md:px-6 relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center text-center space-y-8">
+            {/* 2. Architectural Coordinate Spine (Persistent Datum Line) */}
+            <div className="pointer-events-none absolute left-6 sm:left-12 lg:left-20 top-0 bottom-0 w-[1px] bg-white/[0.05] -z-10" />
+
+            {/* 3. Header Datum & Engineering Metadata */}
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="max-w-6xl w-full z-10 pt-4"
+            >
                 <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="space-y-6"
+                    variants={itemVariants}
+                    className="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-white/[0.08]"
                 >
-                    <motion.div variants={itemVariants} className="inline-block">
-                        <span className="px-3 py-1 text-sm font-medium tracking-wider uppercase rounded-full bg-primary/10 text-primary border border-primary/20">
-                            Open for opportunities
+                    <div className="flex items-center gap-3">
+                        <span className="font-mono text-[10px] sm:text-xs tracking-[0.25em] uppercase text-white/40">
+                            SIGNAL // 001
                         </span>
-                    </motion.div>
+                        <span className="text-white/20">•</span>
+                        <span className="font-mono text-[10px] sm:text-xs text-blue-400 font-medium tracking-wider">
+                            AUTONOMOUS SYSTEMS ARCHITECTURE
+                        </span>
+                    </div>
 
-                    <motion.h1
-                        variants={itemVariants}
-                        className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight max-w-4xl"
-                    >
-                        I build{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-cyan-400">
-                            AI-powered applications
-                        </span>{" "}
-                        that solve real-world problems.
-                    </motion.h1>
+                    <div className="flex items-center gap-4 text-xs font-mono text-white/50">
+                        <span className="inline-flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_8px_#0066FF]" />
+                            <span className="text-[11px] text-white/70">ZAMIN ASKARI RIZVI</span>
+                        </span>
+                    </div>
+                </motion.div>
+            </motion.div>
 
-                    <motion.h2
-                        variants={itemVariants}
-                        className="text-xl md:text-2xl font-medium text-muted-foreground"
-                    >
-                        Software Engineer & AI Developer
-                    </motion.h2>
+            {/* 4. Monumental Editorial Typography */}
+            <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="max-w-6xl w-full my-auto z-10 py-10 space-y-8"
+            >
+                <motion.div variants={itemVariants} className="space-y-4">
+                    <p className="font-mono text-xs tracking-[0.28em] uppercase text-white/45">
+                        RESEARCH ⟶ CODE ⟶ DETERMINISTIC RUNTIME
+                    </p>
 
-                    <motion.p
-                        variants={itemVariants}
-                        className="max-w-[620px] mx-auto text-base sm:text-lg text-muted-foreground leading-relaxed"
-                    >
-                        I specialize in integrating modern machine learning models into full-stack applications. Focused on building reliable, performant systems that solve real problems.
-                    </motion.p>
+                    <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] text-[#F3F2EE]">
+                        <span className="block text-white/95">FROM SENSORY SIGNAL</span>
+                        <span className="block text-white/80">TO AUTONOMOUS</span>
+                        <span className="block text-white/95">
+                            INTELLIGENCE<span className="text-blue-500">.</span>
+                        </span>
+                    </h1>
+                </motion.div>
 
-                    <motion.div
-                        variants={itemVariants}
-                        className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
+                {/* Subtitle / Engineering Thesis */}
+                <motion.div variants={itemVariants} className="max-w-2xl">
+                    <p className="text-base sm:text-lg md:text-xl text-[#9494A0] leading-relaxed font-light">
+                        Engineering machine learning pipelines, real-time drone vision, and autonomous agent workflows.
+                        Bridging noisy real-world data with verifiable, low-latency production systems.
+                    </p>
+                </motion.div>
+
+                {/* Purposeful Architectural Actions */}
+                <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-5 pt-3">
+                    <a
+                        href="#projects"
+                        className="group inline-flex items-center gap-3 px-6 py-3.5 rounded-none border border-white/20 bg-white/[0.04] hover:bg-blue-600 hover:border-blue-500 text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-sm"
                     >
+                        <span>[01] EXAMINE ARCHITECTURES</span>
+                        <FaArrowRight className="w-3 h-3 transition-transform duration-300 group-hover:translate-x-1" />
+                    </a>
+
+                    <a
+                        href="#about"
+                        className="inline-flex items-center gap-2 px-6 py-3.5 rounded-none border border-white/[0.08] hover:border-white/20 bg-transparent text-white/70 hover:text-white font-mono text-xs uppercase tracking-wider transition-all duration-300"
+                    >
+                        <span>[02] SYSTEM MONOGRAPH</span>
+                    </a>
+
+                    {/* Direct Verified Links */}
+                    <div className="flex items-center gap-3 sm:ml-4 pt-2 sm:pt-0">
                         <a
-                            href="#projects"
-                            className="px-8 py-3 rounded-md bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors inline-block w-full sm:w-auto shadow-lg hover:shadow-xl dark:shadow-none"
-                        >
-                            View Projects
-                        </a>
-                        <a
-                            href="#contact"
-                            className="px-8 py-3 rounded-md border border-input bg-background font-medium hover:bg-accent hover:text-accent-foreground transition-colors inline-block w-full sm:w-auto"
-                        >
-                            Contact Me
-                        </a>
-                    </motion.div>
-
-                    <motion.div
-                        variants={itemVariants}
-                        className="flex items-center justify-center gap-6 pt-8 text-muted-foreground"
-                    >
-                        <a
-                            href="https://github.com/ZaminAskari"
+                            href="https://github.com/zaaammmiiinnn"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-foreground transition-colors p-2"
                             aria-label="GitHub Profile"
+                            className="p-3 border border-white/[0.08] hover:border-blue-500 text-white/50 hover:text-white transition-colors"
                         >
-                            <FaGithub className="w-6 h-6" />
+                            <FaGithub className="w-4 h-4" />
                         </a>
                         <a
                             href="https://www.linkedin.com/in/zamin-askari-rizvi/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-foreground transition-colors p-2"
                             aria-label="LinkedIn Profile"
+                            className="p-3 border border-white/[0.08] hover:border-blue-500 text-white/50 hover:text-white transition-colors"
                         >
-                            <FaLinkedin className="w-6 h-6" />
-                        </a>
-                        <a
-                            href="https://leetcode.com/u/zaaammmiiinnn/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-foreground transition-colors p-2"
-                            aria-label="LeetCode Profile"
-                        >
-                            <SiLeetcode className="w-6 h-6" />
+                            <FaLinkedin className="w-4 h-4" />
                         </a>
                         <a
                             href="mailto:zaminaskari.work@gmail.com"
-                            className="hover:text-foreground transition-colors p-2"
-                            aria-label="Email Me"
+                            aria-label="Send Direct Email"
+                            className="p-3 border border-white/[0.08] hover:border-blue-500 text-white/50 hover:text-white transition-colors"
                         >
-                            <FaEnvelope className="w-6 h-6" />
+                            <FaEnvelope className="w-4 h-4" />
                         </a>
-                    </motion.div>
+                    </div>
                 </motion.div>
-            </div>
+            </motion.div>
 
-            {/* Scroll indicator */}
+            {/* 5. Continuous Signal Datum Footer & Calibration Status */}
             <motion.div
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center text-muted-foreground"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.5, duration: 1 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+                className="max-w-6xl w-full z-10 pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
             >
-                <span className="text-sm font-medium mb-2 uppercase tracking-widest hidden sm:block">Scroll</span>
-                <motion.div
-                    animate={{ y: [0, 10, 0] }}
-                    transition={{ repeat: Infinity, duration: 2 }}
-                    className="w-6 h-10 border-2 border-muted-foreground rounded-full flex justify-center p-1"
+                {/* Calibration Status Telemetry */}
+                <div className="flex flex-wrap items-center gap-6 font-mono text-[11px] text-white/40">
+                    <span className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-blue-400" />
+                        <span>SENSORY INPUT: ARDUPILOT UAV TELEMETRY</span>
+                    </span>
+                    <span className="hidden md:inline text-white/20">/</span>
+                    <span className="flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 bg-cyan-400" />
+                        <span>LATENT MODEL: PYTORCH &amp; NLP</span>
+                    </span>
+                </div>
+
+                {/* Continuous Carrier Wave Cue */}
+                <a
+                    href="#about"
+                    aria-label="Continue to Chapter 01"
+                    className="group inline-flex items-center gap-3 font-mono text-xs text-white/50 hover:text-white transition-colors"
                 >
-                    <motion.div className="w-1.5 h-1.5 bg-muted-foreground rounded-full" />
-                </motion.div>
+                    <span className="tracking-widest uppercase text-[10px]">SCROLL INTO SIGNAL ANALYSIS</span>
+                    <span className="text-blue-400 group-hover:translate-y-0.5 transition-transform">↓</span>
+                </a>
             </motion.div>
         </section>
     );

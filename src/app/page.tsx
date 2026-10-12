@@ -1,6 +1,7 @@
 "use client";
 
 import Navbar from "@/components/navbar";
+import Hero from "@/components/hero";
 import AboutSection from "@/components/about";
 import ProjectsSection from "@/components/projects";
 import GitHubCommits from "@/components/GitHubCommits";
@@ -13,43 +14,39 @@ import { Toaster } from "sonner";
 
 export default function Home() {
     return (
-        <div className="flex flex-col min-h-screen bg-[#050505] relative selection:bg-purple-500/30 selection:text-white">
-            {/* Ambient Dark Blue & Purple Radial Background */}
-            <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden">
-                {/* Top Center: Deep Indigo / Blue Radial */}
-                <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1200px] h-[700px] rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(37,99,235,0.18)_0%,_rgba(79,70,229,0.12)_45%,_transparent_75%)] blur-[120px]" />
+        <div className="flex flex-col min-h-screen bg-[#060608] text-[#F3F2EE] relative selection:bg-blue-600/35 selection:text-white">
+            {/* 1. Global Ambient Engineering Atmosphere */}
+            <div className="fixed inset-0 pointer-events-none -z-20 overflow-hidden">
+                {/* Ultra-subtle deep indigo aura top */}
+                <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[1100px] h-[550px] rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(0,102,255,0.08)_0%,_rgba(0,240,255,0.03)_40%,_transparent_70%)] blur-[140px]" />
+                {/* Lower accent aura */}
+                <div className="absolute top-[60%] -right-[10%] w-[700px] h-[700px] rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(0,102,255,0.05)_0%,_transparent_70%)] blur-[160px]" />
+            </div>
 
-                {/* Left Accent: Deep Purple Radial */}
-                <div className="absolute top-[35%] -left-[15%] w-[800px] h-[800px] rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(147,51,234,0.14)_0%,_transparent_70%)] blur-[140px]" />
-
-                {/* Right Accent: Rich Blue / Violet Radial */}
-                <div className="absolute top-[65%] -right-[15%] w-[850px] h-[850px] rounded-full bg-[radial-gradient(ellipse_at_center,_rgba(59,130,246,0.14)_0%,_rgba(124,58,237,0.10)_50%,_transparent_75%)] blur-[150px]" />
-
-                {/* Global subtle vignette */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,_rgba(67,56,202,0.12),_transparent)]" />
+            {/* 2. Persistent Vertical Signal Datum (Connects Hero through Monograph) */}
+            <div
+                className="pointer-events-none fixed left-6 sm:left-12 lg:left-20 top-0 bottom-0 w-[1px] bg-white/[0.04] z-20 hidden md:block"
+                aria-hidden="true"
+            >
+                {/* Subtle telemetry notch */}
+                <div className="absolute top-24 -left-[2px] w-[5px] h-[1px] bg-blue-500/60" />
+                <div className="absolute top-1/2 -left-[2px] w-[5px] h-[1px] bg-cyan-500/40" />
             </div>
 
             <Navbar />
 
-            {/* Starting Section: High-Impact Animated About Me */}
+            {/* Phase 1 Reset: Monumental Signal Hero */}
+            <Hero />
+
+            {/* Phase 2 Reset: Editorial Monograph & Interactive Architecture Trace */}
             <AboutSection />
 
-            {/* Projects Section */}
+            {/* Downstream Production Sections (Preserved) */}
             <ProjectsSection />
-
-            {/* GitHub Commits & Activity Section */}
             <GitHubCommits />
-
-            {/* Experience Section */}
             <ExperienceSection />
-
-            {/* Education Section */}
             <EducationSection />
-
-            {/* Certifications Section */}
             <CertificationsSection />
-
-            {/* Contact Section */}
             <ContactSection />
 
             <Footer />

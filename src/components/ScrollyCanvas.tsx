@@ -1,168 +1,149 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
-import { useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { useEffect, useRef } from "react";
 
-const FRAME_COUNT = 89;
-
-function getFramePath(index: number): string {
-    return `/sequence/${String(index + 1).padStart(4, "0")}.webp`;
-}
-
+/**
+ * Lightweight procedural canvas that creates an ambient cyber-mesh / synaptic field.
+ * Zero external asset requests, zero 404 errors, strictly managed animation frames,
+ * auto-pauses when off-screen, and respects prefers-reduced-motion.
+ */
 export default function ScrollyCanvas() {
-    const containerRef = useRef<HTMLDivElement>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [images, setImages] = useState<HTMLImageElement[]>([]);
-    const [hasFrames, setHasFrames] = useState(true);
-
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ["start start", "end end"],
-    });
-
-    const frameIndex = useTransform(scrollYProgress, [0, 1], [0, FRAME_COUNT - 1]);
-
-    // Preload all frames
-    useEffect(() => {
-        const loadedImages: HTMLImageElement[] = [];
-        let loadedCount = 0;
-        let errorCount = 0;
-
-        for (let i = 0; i < FRAME_COUNT; i++) {
-            const img = new Image();
-            img.src = getFramePath(i);
-
-            img.onload = () => {
-                loadedCount++;
-                loadedImages[i] = img;
-                if (loadedCount + errorCount === FRAME_COUNT) {
-                    if (loadedCount > 0) {
-                        setImages([...loadedImages]);
-                    } else {
-                        setHasFrames(false);
-                    }
-                }
-            };
-
-            img.onerror = () => {
-                errorCount++;
-                if (errorCount === FRAME_COUNT) {
-                    setHasFrames(false);
-                }
-                if (loadedCount + errorCount === FRAME_COUNT && loadedCount > 0) {
-                    setImages([...loadedImages]);
-                }
-            };
-        }
-    }, []);
-
-    // Draw frame on canvas with cover-fit
-    const drawFrame = useCallback(
-        (index: number) => {
-            const canvas = canvasRef.current;
-            if (!canvas || images.length === 0) return;
-
-            const ctx = canvas.getContext("2d");
-            if (!ctx) return;
-
-            const clampedIndex = Math.min(Math.max(Math.round(index), 0), images.length - 1);
-            const img = images[clampedIndex];
-            if (!img) return;
-
-            const { width: cw, height: ch } = canvas;
-            const { naturalWidth: iw, naturalHeight: ih } = img;
-
-            const scale = Math.max(cw / iw, ch / ih);
-            const sw = iw * scale;
-            const sh = ih * scale;
-            const sx = (cw - sw) / 2;
-            const sy = (ch - sh) / 2;
-
-            ctx.clearRect(0, 0, cw, ch);
-            ctx.drawImage(img, sx, sy, sw, sh);
-        },
-        [images]
-    );
-
-    useMotionValueEvent(frameIndex, "change", (latest) => {
-        drawFrame(latest);
-    });
 
     useEffect(() => {
         const canvas = canvasRef.current;
         if (!canvas) return;
 
-        const resize = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            drawFrame(frameIndex.get());
+        const ctx = canvas.getContext("2d", { alpha: true });
+        if (!ctx) return;
+
+        let animationFrameId: number;
+        let isVisible = true;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        // Particle model
+        interface Particle {
+            x: number;
+            y: number;
+            vx: number;
+            vy: number;
+            radius: number;
+            alpha: number;
+        }
+
+        let particles: Particle[] = [];
+        let width = (canvas.width = window.innerWidth);
+        let height = (canvas.height = window.innerHeight);
+
+        const initParticles = () => {
+            const count = Math.min(Math.floor((width * height) / 24000), 45);
+            particles = [];
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height,
+                    vx: (Math.random() - 0.5) * 0.35,
+                    vy: (Math.random() - 0.5) * 0.35,
+                    radius: Math.random() * 1.5 + 0.5,
+                    alpha: Math.random() * 0.4 + 0.15,
+                });
+            }
         };
 
-        resize();
-        window.addEventListener("resize", resize);
-        return () => window.removeEventListener("resize", resize);
-    }, [drawFrame, frameIndex]);
+        initParticles();
 
-    useEffect(() => {
-        if (images.length > 0) {
-            drawFrame(0);
+        const handleResize = () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initParticles();
+            if (prefersReducedMotion) renderStatic();
+        };
+
+        window.addEventListener("resize", handleResize);
+
+        const renderStatic = () => {
+            ctx.clearRect(0, 0, width, height);
+            for (const p of particles) {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 150, 255, ${p.alpha * 0.6})`;
+                ctx.fill();
+            }
+        };
+
+        if (prefersReducedMotion) {
+            renderStatic();
+            return () => {
+                window.removeEventListener("resize", handleResize);
+            };
         }
-    }, [images, drawFrame]);
+
+        const render = () => {
+            if (!isVisible) {
+                animationFrameId = requestAnimationFrame(render);
+                return;
+            }
+
+            ctx.clearRect(0, 0, width, height);
+
+            // Connect nearby particles
+            const maxDist = 120;
+            for (let i = 0; i < particles.length; i++) {
+                const p1 = particles[i];
+                p1.x += p1.vx;
+                p1.y += p1.vy;
+
+                // Bounce boundaries
+                if (p1.x < 0 || p1.x > width) p1.vx *= -1;
+                if (p1.y < 0 || p1.y > height) p1.vy *= -1;
+
+                // Draw point
+                ctx.beginPath();
+                ctx.arc(p1.x, p1.y, p1.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(0, 200, 255, ${p1.alpha})`;
+                ctx.fill();
+
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < maxDist) {
+                        const alpha = (1 - dist / maxDist) * 0.15;
+                        ctx.strokeStyle = `rgba(0, 102, 255, ${alpha})`;
+                        ctx.lineWidth = 0.75;
+                        ctx.beginPath();
+                        ctx.moveTo(p1.x, p1.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            animationFrameId = requestAnimationFrame(render);
+        };
+
+        // Pause animation when tab is inactive or hidden
+        const handleVisibilityChange = () => {
+            isVisible = !document.hidden;
+        };
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+
+        render();
+
+        return () => {
+            cancelAnimationFrame(animationFrameId);
+            window.removeEventListener("resize", handleResize);
+            document.removeEventListener("visibilitychange", handleVisibilityChange);
+        };
+    }, []);
 
     return (
-        <div ref={containerRef} className="relative h-[500vh]">
-            <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#050505]">
-                {/* Canvas for frame sequence */}
-                <canvas
-                    ref={canvasRef}
-                    className="absolute inset-0 w-full h-full"
-                />
-
-                {/* Fallback: Radar / Sonar Animation (shown when no frames) */}
-                {!hasFrames && (
-                    <div className="absolute inset-0">
-                        {/* Base dark gradient */}
-                        <div className="absolute inset-0 bg-[#050505]" />
-
-                        {/* Subtle blue radial glow */}
-                        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(59,130,246,0.08),transparent_60%)]" />
-
-                        {/* Radar rings */}
-                        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                            {/* Pulsing concentric rings */}
-                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-blue-500/20 animate-radar-pulse" />
-                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-blue-500/15 animate-radar-pulse-delayed" />
-                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-blue-500/10 animate-radar-pulse-delayed-2" />
-
-                            {/* Static rings */}
-                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full border border-white/[0.04]" />
-                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] rounded-full border border-white/[0.03]" />
-                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-white/[0.02]" />
-                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] rounded-full border border-white/[0.015]" />
-
-                            {/* Rotating sweep line */}
-                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] animate-radar-rotate">
-                                <div className="absolute left-1/2 top-0 w-[1px] h-1/2 bg-gradient-to-t from-blue-500/30 to-transparent origin-bottom" />
-                            </div>
-
-                            {/* Center dot */}
-                            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-blue-500/60 shadow-[0_0_20px_5px_rgba(59,130,246,0.3)]" />
-                        </div>
-
-                        {/* Dot grid overlay for texture */}
-                        <div
-                            className="absolute inset-0 opacity-[0.02]"
-                            style={{
-                                backgroundImage: 'radial-gradient(circle, white 1px, transparent 1px)',
-                                backgroundSize: '30px 30px',
-                            }}
-                        />
-                    </div>
-                )}
-
-                {/* Vignette overlay */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(5,5,5,0.7)_100%)] pointer-events-none" />
-            </div>
-        </div>
+        <canvas
+            ref={canvasRef}
+            className="pointer-events-none absolute inset-0 w-full h-full opacity-40 -z-10"
+            aria-hidden="true"
+        />
     );
 }
