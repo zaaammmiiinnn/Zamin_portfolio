@@ -1,24 +1,38 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { FaPaperPlane, FaSpinner } from "react-icons/fa";
+import {
+    FaPaperPlane,
+    FaSpinner,
+    FaEnvelope,
+    FaLinkedin,
+    FaGithub,
+    FaCopy,
+    FaCheck,
+} from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { toast } from "sonner";
 
 const contactSchema = z.object({
-    name: z.string().min(2, "Name must be at least 2 characters").max(50, "Name cannot exceed 50 characters"),
+    name: z
+        .string()
+        .min(2, "Name must be at least 2 characters")
+        .max(50, "Name cannot exceed 50 characters"),
     email: z.string().email("Please provide a valid email address"),
-    message: z.string().min(10, "Message must be at least 10 characters").max(1000, "Message cannot exceed 1000 characters"),
+    message: z
+        .string()
+        .min(10, "Message must be at least 10 characters")
+        .max(1000, "Message cannot exceed 1000 characters"),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 export default function ContactSection() {
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [copiedEmail, setCopiedEmail] = useState(false);
 
     const {
         register,
@@ -42,8 +56,8 @@ export default function ContactSection() {
             const result = await response.json();
 
             if (response.ok) {
-                toast.success("Message sent successfully!", {
-                    description: "Thank you for reaching out. I'll get back to you soon.",
+                toast.success("Message dispatched successfully!", {
+                    description: "Thank you for reaching out. I'll get back to you shortly.",
                 });
                 reset();
             } else {
@@ -53,200 +67,301 @@ export default function ContactSection() {
             }
         } catch {
             toast.error("Something went wrong", {
-                description: "Please try again later or contact me directly via email.",
+                description: "Please reach out directly at zaminaskari.work@gmail.com",
             });
         } finally {
             setIsSubmitting(false);
         }
     };
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.1 },
-        },
-    };
-
-    const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: { type: "spring" as const, stiffness: 100 },
-        },
+    const handleCopyEmail = () => {
+        navigator.clipboard.writeText("zaminaskari.work@gmail.com");
+        setCopiedEmail(true);
+        toast.info("Email copied to clipboard", {
+            description: "zaminaskari.work@gmail.com",
+        });
+        setTimeout(() => setCopiedEmail(false), 2500);
     };
 
     return (
-        <section id="contact" className="py-24 bg-[#050505] relative">
-            <div className="container px-4 md:px-6 mx-auto max-w-5xl">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={containerVariants}
-                    className="space-y-14"
-                >
-                    {/* Header */}
-                    <div className="text-center space-y-4">
-                        <motion.span
-                            variants={itemVariants}
-                            className="inline-block text-[11px] font-semibold tracking-[0.25em] uppercase text-blue-400/70"
-                        >
-                            Reach Out
-                        </motion.span>
-                        <motion.h2 variants={itemVariants} className="text-3xl md:text-5xl font-bold tracking-tight text-white/90">
-                            Get In Touch
-                        </motion.h2>
-                        <motion.div variants={itemVariants} className="w-16 h-0.5 bg-blue-500/40 mx-auto rounded-full" />
-                        <motion.p variants={itemVariants} className="text-white/40 text-base max-w-2xl mx-auto pt-2">
-                            Have a project in mind or want to discuss opportunities? I&apos;d love to hear from you.
-                        </motion.p>
+        <section
+            id="contact"
+            className="relative w-full bg-[#060608] text-[#F3F2EE] py-24 px-6 sm:px-12 lg:px-20 z-20 border-t border-white/[0.06]"
+            aria-label="Contact and Communication Channel"
+        >
+            {/* Calm Ambient Aura */}
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-blue-600/[0.04] blur-[160px] pointer-events-none -z-10" />
+
+            <div className="max-w-6xl mx-auto space-y-14">
+                {/* Section Header */}
+                <div className="space-y-4">
+                    <div className="flex items-center gap-3 border-b border-white/[0.08] pb-4">
+                        <span className="font-mono text-xs text-blue-400 font-bold tracking-widest uppercase">
+                            [06.CONTACT]
+                        </span>
+                        <span className="text-white/20">•</span>
+                        <h2 className="font-mono text-xs text-white/70 tracking-widest uppercase">
+                            DIRECT DISPATCH TERMINAL
+                        </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 pt-4">
-                        {/* Contact Info */}
-                        <motion.div variants={itemVariants} className="space-y-5">
-                            <div className="glass-card rounded-2xl p-7 space-y-3">
-                                <h3 className="text-lg font-semibold text-white/90 mb-4">Contact Information</h3>
-                                <p className="text-white/40 text-sm leading-relaxed">
-                                    Fill out the form and I will get back to you within 24 hours. Alternatively, reach out directly.
+                    <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pt-2">
+                        <div>
+                            <span className="font-mono text-[11px] text-blue-400/80 tracking-[0.25em] uppercase block mb-1">
+                                INITIATE COMMUNICATION
+                            </span>
+                            <h3 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white font-mono">
+                                LET&apos;S BUILD THE EXTRAORDINARY.
+                            </h3>
+                        </div>
+
+                        <p className="text-sm text-white/50 font-light max-w-md leading-relaxed">
+                            Open for AI systems engineering, agentic workflow architectures, and full-stack technical engagements.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Main 2-Column Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    {/* Left Column: Direct Coordinate Cards */}
+                    <div className="lg:col-span-5 space-y-6">
+                        {/* Status Beacon Card */}
+                        <div className="p-6 rounded-2xl bg-[#090D18] border border-blue-500/20 shadow-[0_10px_30px_rgba(0,0,0,0.6)] space-y-3">
+                            <div className="flex items-center gap-2">
+                                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                                <span className="font-mono text-xs text-emerald-400 font-semibold tracking-wider uppercase">
+                                    CURRENT STATUS: AVAILABLE
+                                </span>
+                            </div>
+                            <p className="text-xs text-white/70 font-light leading-relaxed">
+                                Actively evaluating new opportunities in AI/ML engineering, intelligent agents, and full-stack systems.
+                            </p>
+                            <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between text-[11px] font-mono text-white/40">
+                                <span>RESPONSE TIME: &lt; 24H</span>
+                                <span>TIMEZONE: UTC+05:30</span>
+                            </div>
+                        </div>
+
+                        {/* Direct Channel Links */}
+                        <div className="space-y-3">
+                            {/* Email Card with Copy Button */}
+                            <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-blue-500/30 transition-all flex items-center justify-between gap-3 group">
+                                <div className="flex items-center gap-3.5">
+                                    <div className="p-2.5 rounded-lg bg-blue-500/10 text-blue-400">
+                                        <FaEnvelope className="w-4 h-4" />
+                                    </div>
+                                    <div>
+                                        <span className="font-mono text-[10px] text-white/40 uppercase block">
+                                            PRIMARY EMAIL
+                                        </span>
+                                        <a
+                                            href="mailto:zaminaskari.work@gmail.com"
+                                            className="text-xs sm:text-sm text-white font-mono group-hover:text-blue-300 transition-colors"
+                                        >
+                                            zaminaskari.work@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    onClick={handleCopyEmail}
+                                    className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-white/60 hover:text-white transition-colors cursor-pointer outline-none focus:ring-1 focus:ring-blue-400"
+                                    aria-label="Copy email address"
+                                    title="Copy email address"
+                                >
+                                    {copiedEmail ? (
+                                        <FaCheck className="w-3.5 h-3.5 text-emerald-400" />
+                                    ) : (
+                                        <FaCopy className="w-3.5 h-3.5" />
+                                    )}
+                                </button>
+                            </div>
+
+                            {/* LinkedIn Card */}
+                            <a
+                                href="https://www.linkedin.com/in/zamin-askari-rizvi/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-blue-500/30 transition-all flex items-center justify-between gap-3 group"
+                            >
+                                <div className="flex items-center gap-3.5">
+                                    <div className="p-2.5 rounded-lg bg-blue-500/10 text-blue-400">
+                                        <FaLinkedin className="w-4 h-4" />
+                                    </div>
+                                    <div>
+                                        <span className="font-mono text-[10px] text-white/40 uppercase block">
+                                            PROFESSIONAL NETWORK
+                                        </span>
+                                        <span className="text-xs sm:text-sm text-white font-mono group-hover:text-blue-300 transition-colors">
+                                            linkedin.com/in/zamin-askari-rizvi
+                                        </span>
+                                    </div>
+                                </div>
+                                <span className="font-mono text-xs text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all">
+                                    →
+                                </span>
+                            </a>
+
+                            {/* GitHub Card */}
+                            <a
+                                href="https://github.com/zaaammmiiinnn"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-blue-500/30 transition-all flex items-center justify-between gap-3 group"
+                            >
+                                <div className="flex items-center gap-3.5">
+                                    <div className="p-2.5 rounded-lg bg-blue-500/10 text-blue-400">
+                                        <FaGithub className="w-4 h-4" />
+                                    </div>
+                                    <div>
+                                        <span className="font-mono text-[10px] text-white/40 uppercase block">
+                                            SOURCE CODE REPOSITORIES
+                                        </span>
+                                        <span className="text-xs sm:text-sm text-white font-mono group-hover:text-blue-300 transition-colors">
+                                            github.com/zaaammmiiinnn
+                                        </span>
+                                    </div>
+                                </div>
+                                <span className="font-mono text-xs text-white/30 group-hover:text-blue-400 group-hover:translate-x-1 transition-all">
+                                    →
+                                </span>
+                            </a>
+
+                            {/* LeetCode Card */}
+                            <a
+                                href="https://leetcode.com/u/zaaammmiiinnn/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-amber-500/30 transition-all flex items-center justify-between gap-3 group"
+                            >
+                                <div className="flex items-center gap-3.5">
+                                    <div className="p-2.5 rounded-lg bg-amber-500/10 text-amber-400">
+                                        <SiLeetcode className="w-4 h-4" />
+                                    </div>
+                                    <div>
+                                        <span className="font-mono text-[10px] text-white/40 uppercase block">
+                                            ALGORITHMIC PROFILE
+                                        </span>
+                                        <span className="text-xs sm:text-sm text-white font-mono group-hover:text-amber-300 transition-colors">
+                                            leetcode.com/u/zaaammmiiinnn
+                                        </span>
+                                    </div>
+                                </div>
+                                <span className="font-mono text-xs text-white/30 group-hover:text-amber-400 group-hover:translate-x-1 transition-all">
+                                    →
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Working Interactive Form */}
+                    <div className="lg:col-span-7">
+                        <div className="p-6 sm:p-8 lg:p-10 rounded-2xl bg-[#090C16] border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.85)] space-y-6">
+                            <div className="border-b border-white/[0.08] pb-4">
+                                <h4 className="text-lg font-bold font-mono text-white">
+                                    TRANSMIT DIRECT MESSAGE
+                                </h4>
+                                <p className="text-xs text-white/50 font-light mt-1">
+                                    All transmissions are routed through secure authenticated endpoints.
                                 </p>
                             </div>
 
-                            <div className="space-y-3">
-                                {[
-                                    {
-                                        label: "Email",
-                                        value: "zaminaskari.work@gmail.com",
-                                        href: "mailto:zaminaskari.work@gmail.com",
-                                        icon: (
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-400">
-                                                <rect width="20" height="16" x="2" y="4" rx="2" />
-                                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-                                            </svg>
-                                        ),
-                                    },
-                                    {
-                                        label: "LinkedIn",
-                                        value: "linkedin.com/in/zamin-askari-rizvi",
-                                        href: "https://www.linkedin.com/in/zamin-askari-rizvi/",
-                                        icon: (
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-400">
-                                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                                                <rect width="4" height="12" x="2" y="9" />
-                                                <circle cx="4" cy="4" r="2" />
-                                            </svg>
-                                        ),
-                                    },
-                                    {
-                                        label: "LeetCode",
-                                        value: "leetcode.com/u/zaaammmiiinnn",
-                                        href: "https://leetcode.com/u/zaaammmiiinnn/",
-                                        icon: <SiLeetcode className="w-[18px] h-[18px] text-blue-400" />,
-                                    },
-                                ].map((item) => (
-                                    <div key={item.label} className="glass-card flex items-center gap-4 p-4 rounded-xl">
-                                        <div className="p-2.5 bg-blue-500/10 rounded-lg border border-blue-500/15 shrink-0">
-                                            {item.icon}
-                                        </div>
-                                        <div>
-                                            <h4 className="text-sm font-medium text-white/60">{item.label}</h4>
-                                            <a
-                                                href={item.href}
-                                                target={item.href.startsWith("mailto") ? undefined : "_blank"}
-                                                rel={item.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-                                                className="text-sm text-blue-400/80 hover:text-blue-400 transition-colors mt-0.5 block"
-                                            >
-                                                {item.value}
-                                            </a>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
-
-                        {/* Form */}
-                        <motion.div variants={itemVariants}>
-                            <form
-                                onSubmit={handleSubmit(onSubmit)}
-                                className="glass-card rounded-2xl p-7 space-y-5"
-                            >
+                            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+                                {/* Name Field */}
                                 <div className="space-y-1.5">
-                                    <label htmlFor="name" className="text-sm font-medium text-white/60">
-                                        Name
+                                    <label
+                                        htmlFor="name"
+                                        className="text-xs font-mono text-white/60 tracking-wider uppercase block"
+                                    >
+                                        Your Name // Organization
                                     </label>
                                     <input
                                         id="name"
                                         type="text"
                                         {...register("name")}
-                                        className={`w-full p-3 rounded-lg bg-white/[0.03] border focus:outline-none focus:ring-1 focus:ring-blue-500/50 text-white/80 placeholder:text-white/20 transition-all text-sm ${
-                                            errors.name ? "border-red-500/50" : "border-white/[0.06]"
+                                        className={`w-full p-3.5 rounded-xl bg-black/40 border text-white text-sm font-mono placeholder:text-white/20 transition-all outline-none focus:ring-2 focus:ring-blue-400 ${
+                                            errors.name ? "border-red-500/60" : "border-white/10 focus:border-blue-500/50"
                                         }`}
-                                        placeholder="John Doe"
+                                        placeholder="Alex Rivera"
                                     />
                                     {errors.name && (
-                                        <p className="text-red-400/80 text-xs mt-1">{errors.name.message}</p>
+                                        <p className="text-red-400 text-xs font-mono mt-1">
+                                            {errors.name.message}
+                                        </p>
                                     )}
                                 </div>
 
+                                {/* Email Field */}
                                 <div className="space-y-1.5">
-                                    <label htmlFor="email" className="text-sm font-medium text-white/60">
-                                        Email
+                                    <label
+                                        htmlFor="email"
+                                        className="text-xs font-mono text-white/60 tracking-wider uppercase block"
+                                    >
+                                        Your Email Address
                                     </label>
                                     <input
                                         id="email"
                                         type="email"
                                         {...register("email")}
-                                        className={`w-full p-3 rounded-lg bg-white/[0.03] border focus:outline-none focus:ring-1 focus:ring-blue-500/50 text-white/80 placeholder:text-white/20 transition-all text-sm ${
-                                            errors.email ? "border-red-500/50" : "border-white/[0.06]"
+                                        className={`w-full p-3.5 rounded-xl bg-black/40 border text-white text-sm font-mono placeholder:text-white/20 transition-all outline-none focus:ring-2 focus:ring-blue-400 ${
+                                            errors.email ? "border-red-500/60" : "border-white/10 focus:border-blue-500/50"
                                         }`}
-                                        placeholder="john@example.com"
+                                        placeholder="alex@company.com"
                                     />
                                     {errors.email && (
-                                        <p className="text-red-400/80 text-xs mt-1">{errors.email.message}</p>
+                                        <p className="text-red-400 text-xs font-mono mt-1">
+                                            {errors.email.message}
+                                        </p>
                                     )}
                                 </div>
 
+                                {/* Message Field */}
                                 <div className="space-y-1.5">
-                                    <label htmlFor="message" className="text-sm font-medium text-white/60">
-                                        Message
+                                    <label
+                                        htmlFor="message"
+                                        className="text-xs font-mono text-white/60 tracking-wider uppercase block"
+                                    >
+                                        Message &amp; Project Scope
                                     </label>
                                     <textarea
                                         id="message"
-                                        {...register("message")}
                                         rows={5}
-                                        className={`w-full p-3 rounded-lg bg-white/[0.03] border focus:outline-none focus:ring-1 focus:ring-blue-500/50 text-white/80 placeholder:text-white/20 transition-all resize-none text-sm ${
-                                            errors.message ? "border-red-500/50" : "border-white/[0.06]"
+                                        {...register("message")}
+                                        className={`w-full p-3.5 rounded-xl bg-black/40 border text-white text-sm font-light placeholder:text-white/20 transition-all resize-none outline-none focus:ring-2 focus:ring-blue-400 ${
+                                            errors.message ? "border-red-500/60" : "border-white/10 focus:border-blue-500/50"
                                         }`}
-                                        placeholder="How can I help you?"
+                                        placeholder="Tell me about your initiative, timeline, or engineering challenge..."
                                     />
                                     {errors.message && (
-                                        <p className="text-red-400/80 text-xs mt-1">{errors.message.message}</p>
+                                        <p className="text-red-400 text-xs font-mono mt-1">
+                                            {errors.message.message}
+                                        </p>
                                     )}
                                 </div>
 
+                                {/* Submit Button */}
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-full py-3.5 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-400 transition-all flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed shadow-[0_0_20px_rgba(59,130,246,0.2)] hover:shadow-[0_0_30px_rgba(59,130,246,0.4)]"
+                                    className="w-full py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(0,102,255,0.4)] hover:shadow-[0_4px_25px_rgba(0,102,255,0.6)] transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed outline-none focus:ring-2 focus:ring-blue-400"
                                 >
                                     {isSubmitting ? (
                                         <>
                                             <FaSpinner className="animate-spin w-4 h-4" />
-                                            Sending...
+                                            <span>TRANSMITTING MESSAGE...</span>
                                         </>
                                     ) : (
                                         <>
-                                            Send Message
-                                            <FaPaperPlane className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                                            <span>DISPATCH TRANSMISSION</span>
+                                            <FaPaperPlane className="w-3.5 h-3.5" />
                                         </>
                                     )}
                                 </button>
                             </form>
-                        </motion.div>
+                        </div>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );
