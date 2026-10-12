@@ -141,7 +141,7 @@ export default function MetroSection() {
     return (
         <section
             ref={metroRef}
-            id="expertise"
+            id="metro"
             className="metro relative w-full min-h-screen bg-[#05060A] text-[#F3F2EE] z-20 py-20 md:py-0 overflow-hidden flex flex-col justify-between"
             aria-label="Metro Station Core Expertise"
         >
@@ -155,6 +155,16 @@ export default function MetroSection() {
                     <h2 className="font-mono text-xs text-white/80 tracking-widest uppercase">
                         STATION PLATFORM // 4 CORE COMPETENCIES
                     </h2>
+                </div>
+
+                {/* Delhi Metro STN 02 Plaque */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 font-mono text-[11px] text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                    <span className="font-bold">STN 02</span>
+                    <span className="text-white/30">|</span>
+                    <span>सेंट्रल प्लेटफ़ॉर्म</span>
+                    <span className="text-white/30">•</span>
+                    <span className="text-white/80">CENTRAL PLATFORM</span>
                 </div>
 
                 <div className="flex items-center gap-4 font-mono text-[11px] text-white/40">

@@ -95,14 +95,26 @@ export default function ContactSection() {
             <div className="max-w-6xl mx-auto space-y-14">
                 {/* Section Header */}
                 <div className="space-y-4">
-                    <div className="flex items-center gap-3 border-b border-white/[0.08] pb-4">
-                        <span className="font-mono text-xs text-blue-400 font-bold tracking-widest uppercase">
-                            [06.CONTACT]
-                        </span>
-                        <span className="text-white/20">•</span>
-                        <h2 className="font-mono text-xs text-white/70 tracking-widest uppercase">
-                            DIRECT DISPATCH TERMINAL
-                        </h2>
+                    <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.08] pb-4">
+                        <div className="flex items-center gap-3">
+                            <span className="font-mono text-xs text-blue-400 font-bold tracking-widest uppercase">
+                                [06.CONTACT]
+                            </span>
+                            <span className="text-white/20">•</span>
+                            <h2 className="font-mono text-xs text-white/70 tracking-widest uppercase">
+                                DIRECT DISPATCH TERMINAL
+                            </h2>
+                        </div>
+
+                        {/* Delhi Metro STN 05 Plaque */}
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 font-mono text-[11px] text-cyan-300 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                            <span className="font-bold">STN 05</span>
+                            <span className="text-white/30">|</span>
+                            <span>संपर्क</span>
+                            <span className="text-white/30">•</span>
+                            <span className="text-white/80">TERMINUS JUNCTION</span>
+                        </div>
                     </div>
 
                     <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pt-2">

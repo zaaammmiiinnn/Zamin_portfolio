@@ -225,6 +225,17 @@ export default function ProjectsSection() {
                                 SELECTED PRODUCTION ARCHITECTURES
                             </h2>
                         </div>
+
+                        {/* Delhi Metro STN 03 Plaque */}
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 font-mono text-[11px] text-cyan-300 shadow-[0_0_15px_rgba(0,102,255,0.15)]">
+                            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                            <span className="font-bold">STN 03</span>
+                            <span className="text-white/30">|</span>
+                            <span>प्रोजेक्ट्स</span>
+                            <span className="text-white/30">•</span>
+                            <span className="text-white/80">PRODUCTION DEPLOYMENTS</span>
+                        </div>
+
                         <a
                             href="https://github.com/zaaammmiiinnn"
                             target="_blank"

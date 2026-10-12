@@ -116,7 +116,7 @@ export default function DiarySection() {
     return (
         <section
             ref={diaryRef}
-            id="about"
+            id="diary"
             className="diary relative w-full min-h-screen bg-[#060608] text-[#F3F2EE] z-20 py-20 md:py-0 overflow-hidden flex flex-col justify-between"
             aria-label="Engineering Diary and Sticky Notes"
         >
@@ -133,6 +133,16 @@ export default function DiarySection() {
                     <h2 className="font-mono text-xs text-white/70 uppercase tracking-widest">
                         FIELD NOTES &amp; CORE REPERTOIRE
                     </h2>
+                </div>
+
+                {/* Delhi Metro STN 01 Plaque */}
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/30 font-mono text-[11px] text-cyan-300 shadow-[0_0_15px_rgba(0,102,255,0.15)]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                    <span className="font-bold">STN 01</span>
+                    <span className="text-white/30">|</span>
+                    <span>लेटेंट स्पेस</span>
+                    <span className="text-white/30">•</span>
+                    <span className="text-white/80">LATENT SPACE ORIGIN</span>
                 </div>
 
                 {/* Active Note Indicator (Desktop) */}

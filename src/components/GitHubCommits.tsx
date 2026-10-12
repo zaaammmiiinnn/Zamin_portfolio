@@ -286,7 +286,7 @@ export default function GitHubCommits() {
 
     return (
         <section
-            id="telemetry"
+            id="github"
             className="relative w-full bg-[#060608] text-[#F3F2EE] py-16 px-6 sm:px-12 lg:px-20 z-20 border-t border-white/[0.06]"
             aria-label="Engineering Telemetry & Problem-Solving Console"
         >
@@ -302,11 +302,23 @@ export default function GitHubCommits() {
                     >
                         {/* Left Trigger Info */}
                         <div className="space-y-2">
-                            <div className="flex items-center gap-3">
+                            <div className="flex flex-wrap items-center gap-3">
                                 <span className="font-mono text-xs text-blue-400 font-bold tracking-widest uppercase">
                                     [05.TELEMETRY]
                                 </span>
                                 <span className="text-white/20">•</span>
+
+                                {/* Delhi Metro STN 04 Plaque */}
+                                <div className="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 font-mono text-[10px] text-cyan-300">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
+                                    <span className="font-bold">STN 04</span>
+                                    <span className="text-white/30">|</span>
+                                    <span>टेलीमेट्री</span>
+                                    <span className="text-white/30">•</span>
+                                    <span className="text-white/80">TELEMETRY ARSENAL</span>
+                                </div>
+
+                                <span className="text-white/20 hidden sm:inline">•</span>
                                 <span className="font-mono text-[11px] text-emerald-400 flex items-center gap-1.5 font-semibold">
                                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                                     DISCOVERABLE DRILLDOWN
