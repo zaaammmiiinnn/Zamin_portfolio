@@ -307,11 +307,22 @@ export default function DiarySection() {
                                 <p className="text-[11px] text-white/50">Dense vector projections + re-ranking to defeat hallucination.</p>
                             </div>
                         </div>
+
+                        {/* Founder Venture Stamp Callout */}
+                        <div className="p-2.5 rounded bg-blue-500/10 border border-blue-500/30 flex items-center justify-between gap-2">
+                            <div>
+                                <span className="font-mono text-[9px] text-cyan-300 font-bold uppercase block tracking-wider">FOUNDER VENTURES</span>
+                                <p className="text-[11px] text-white/85 font-medium">NeuralWaves &amp; MENANCE Clothing</p>
+                            </div>
+                            <span className="text-[9px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 shrink-0 font-semibold">
+                                2 CLIENTS IN DUBAI
+                            </span>
+                        </div>
                     </div>
 
                     <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between font-mono text-[10px] text-white/40">
-                        <span>Architecture</span>
-                        <span className="text-indigo-400">Zero Hallucination</span>
+                        <span>Architecture &bull; Ventures</span>
+                        <span className="text-indigo-400">Enterprise Scale</span>
                     </div>
                 </div>
 
