@@ -14,7 +14,7 @@ import { Toaster } from "sonner";
 
 export default function Home() {
     return (
-        <div className="flex flex-col min-h-screen bg-[#060608] text-[#F3F2EE] relative selection:bg-blue-600/35 selection:text-white">
+        <div className="min-h-screen bg-[#060608] text-[#F3F2EE] relative selection:bg-blue-600/35 selection:text-white">
             {/* 1. Global Ambient Engineering Atmosphere */}
             <div className="fixed inset-0 pointer-events-none -z-20 overflow-hidden">
                 {/* Ultra-subtle deep indigo aura top */}

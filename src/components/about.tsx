@@ -92,7 +92,7 @@ export default function AboutSection() {
     return (
         <section
             id="about"
-            className="relative py-28 sm:py-36 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto w-full text-[#F3F2EE] overflow-hidden"
+            className="relative z-20 py-28 sm:py-36 px-6 sm:px-12 lg:px-20 max-w-7xl mx-auto w-full text-[#F3F2EE] overflow-hidden bg-[#060608]"
             aria-label="Engineering Monograph and About Section"
         >
             {/* Architectural Vertical Datum Spine continuing from Hero */}

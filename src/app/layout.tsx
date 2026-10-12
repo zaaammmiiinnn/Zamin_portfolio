@@ -40,8 +40,8 @@ export default function RootLayout({
                     disableTransitionOnChange
                 >
                     <SmoothScroll>
-                        <div className="flex flex-col min-h-screen selection:bg-blue-600/30 selection:text-white">
-                            <main className="flex-grow">{children}</main>
+                        <div className="min-h-screen selection:bg-blue-600/30 selection:text-white">
+                            <main>{children}</main>
                         </div>
                     </SmoothScroll>
                 </ThemeProvider>
