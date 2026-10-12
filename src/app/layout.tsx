@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import SmoothScroll from '@/components/SmoothScroll';
 
 const inter = Inter({
     subsets: ['latin'],
@@ -27,7 +28,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className="dark scroll-smooth" suppressHydrationWarning>
+        <html lang="en" className="dark" suppressHydrationWarning>
             <body
                 className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased min-h-screen flex flex-col bg-[#050507] text-[#F5F5F7] overflow-x-hidden`}
             >
@@ -38,9 +39,11 @@ export default function RootLayout({
                     forcedTheme="dark"
                     disableTransitionOnChange
                 >
-                    <div className="flex flex-col min-h-screen selection:bg-blue-600/30 selection:text-white">
-                        <main className="flex-grow">{children}</main>
-                    </div>
+                    <SmoothScroll>
+                        <div className="flex flex-col min-h-screen selection:bg-blue-600/30 selection:text-white">
+                            <main className="flex-grow">{children}</main>
+                        </div>
+                    </SmoothScroll>
                 </ThemeProvider>
             </body>
         </html>
