@@ -64,9 +64,9 @@ export default function JourneyHUD({ onOpenSmartCard }: JourneyHUDProps) {
                 </div>
 
                 {/* Center: Live Station Status */}
-                <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
-                    <span className="text-white/80 font-mono tracking-tight font-medium text-[10px] sm:text-[11px]">
+                <div className="flex items-center gap-2 min-w-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping shrink-0" />
+                    <span className="text-white/80 font-mono tracking-tight font-medium text-[10px] sm:text-[11px] truncate max-w-[130px] sm:max-w-none">
                         {currentStation}
                     </span>
                 </div>

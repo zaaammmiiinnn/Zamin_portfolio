@@ -287,7 +287,7 @@ export default function GitHubCommits() {
     return (
         <section
             id="github"
-            className="relative w-full bg-[#060608] text-[#F3F2EE] py-16 px-6 sm:px-12 lg:px-20 z-20 border-t border-white/[0.06]"
+            className="relative w-full bg-[#060608] text-[#F3F2EE] py-12 sm:py-16 px-4 sm:px-12 lg:px-20 z-20 border-t border-white/[0.06]"
             aria-label="Engineering Telemetry & Problem-Solving Console"
         >
             <div className="max-w-6xl mx-auto space-y-6">
@@ -298,7 +298,7 @@ export default function GitHubCommits() {
                         onClick={toggleDrawer}
                         aria-expanded={isExpanded}
                         aria-controls="telemetry-drawer"
-                        className="w-full text-left p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-[#0C101E] via-[#0A0D17] to-[#07090F] border border-white/10 hover:border-blue-500/40 shadow-[0_10px_35px_rgba(0,0,0,0.8)] transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
+                        className="w-full text-left p-5 sm:p-8 rounded-2xl bg-gradient-to-r from-[#0C101E] via-[#0A0D17] to-[#07090F] border border-white/10 hover:border-blue-500/40 shadow-[0_10px_35px_rgba(0,0,0,0.8)] transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-6"
                     >
                         {/* Left Trigger Info */}
                         <div className="space-y-2">

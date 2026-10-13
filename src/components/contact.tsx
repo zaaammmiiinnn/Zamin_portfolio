@@ -86,7 +86,7 @@ export default function ContactSection() {
     return (
         <section
             id="contact"
-            className="relative w-full bg-[#060608] text-[#F3F2EE] py-24 px-6 sm:px-12 lg:px-20 z-20 border-t border-white/[0.06]"
+            className="relative w-full bg-[#060608] text-[#F3F2EE] py-14 sm:py-24 px-4 sm:px-12 lg:px-20 z-20 border-t border-white/[0.06]"
             aria-label="Contact and Communication Channel"
         >
             {/* Calm Ambient Aura */}

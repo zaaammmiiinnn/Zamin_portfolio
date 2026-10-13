@@ -142,11 +142,11 @@ export default function MetroSection() {
         <section
             ref={metroRef}
             id="metro"
-            className="metro relative w-full min-h-screen bg-[#05060A] text-[#F3F2EE] z-20 py-20 md:py-0 overflow-hidden flex flex-col justify-between"
+            className="metro relative w-full min-h-screen bg-[#05060A] text-[#F3F2EE] z-20 py-8 md:py-0 overflow-hidden flex flex-col justify-between"
             aria-label="Metro Station Core Expertise"
         >
             {/* Top Station Overhead Signage */}
-            <div className="z-10 w-full max-w-6xl mx-auto px-6 sm:px-12 pt-8 pb-4 border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-4">
+            <div className="z-10 w-full max-w-6xl mx-auto px-4 sm:px-12 pt-6 pb-4 border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                     <span className="font-mono text-xs text-blue-400 font-bold tracking-widest uppercase">
                         [03.METRO]
@@ -178,9 +178,9 @@ export default function MetroSection() {
             </div>
 
             {/* Center Area: 4 Station Billboards */}
-            <div className="relative z-10 w-full max-w-6xl mx-auto my-auto px-6 sm:px-12 py-8">
+            <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-12 py-6 md:py-8 md:my-auto">
                 {/* Section Station Sub-Header */}
-                <div className="mb-8">
+                <div className="mb-6 sm:mb-8">
                     <span className="font-mono text-[11px] text-blue-400/80 tracking-[0.25em] uppercase block mb-1">
                         CENTRAL PLATFORM BILLBOARDS
                     </span>
@@ -190,14 +190,14 @@ export default function MetroSection() {
                 </div>
 
                 {/* The 4 Retro Metro Billboards */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
                     {BILLBOARDS.map((b, i) => (
                         <div
                             key={b.id}
                             tabIndex={0}
                             role="region"
                             aria-label={`${b.title} Billboard`}
-                            className={`metro-billboard metro-billboard-${i} relative flex flex-col justify-between p-6 bg-[#0B0E17]/95 border border-white/10 rounded-sm shadow-[0_12px_30px_rgba(0,0,0,0.8)] transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 hover:border-blue-500/50 group cursor-default`}
+                            className={`metro-billboard metro-billboard-${i} relative flex flex-col justify-between p-5 sm:p-6 bg-[#0B0E17]/95 border border-white/10 rounded-sm shadow-[0_12px_30px_rgba(0,0,0,0.8)] transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 hover:border-blue-500/50 group cursor-default`}
                             style={{
                                 boxShadow: `0 14px 35px rgba(0,0,0,0.7), 0 0 20px ${b.glow}`,
                             }}
@@ -357,7 +357,7 @@ export default function MetroSection() {
                 </div>
 
                 {/* Trackside Platform Coordinate Label */}
-                <div className="max-w-6xl mx-auto px-6 sm:px-12 pt-3 flex items-center justify-between font-mono text-[10px] text-white/30">
+                <div className="max-w-6xl mx-auto px-4 sm:px-12 pt-3 flex items-center justify-between font-mono text-[10px] text-white/30">
                     <span>TRACK 01 // SOUTHBOUND INFERENCE</span>
                     <span className="hidden sm:inline">SPEED: 120 KM/H SCRUBBED</span>
                     <span>NEXT STOP: PROJECTS ARCHIVE →</span>

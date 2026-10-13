@@ -22,7 +22,7 @@ export default function Home() {
     const [isSmartCardOpen, setIsSmartCardOpen] = useState(false);
 
     return (
-        <div className="min-h-screen bg-[#060608] text-[#F3F2EE] relative selection:bg-blue-600/35 selection:text-white pb-24">
+        <div className="min-h-screen bg-[#060608] text-[#F3F2EE] relative selection:bg-blue-600/35 selection:text-white pb-12 md:pb-24">
             {/* Top Delhi Metro Journey HUD */}
             <JourneyHUD onOpenSmartCard={() => setIsSmartCardOpen(true)} />
 

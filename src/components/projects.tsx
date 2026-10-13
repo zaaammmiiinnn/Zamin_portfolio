@@ -394,7 +394,7 @@ export default function ProjectsSection() {
         <section
             ref={sectionRef}
             id="projects"
-            className="relative w-full bg-[#060608] text-[#F3F2EE] py-24 px-6 sm:px-12 lg:px-20 z-20"
+            className="relative w-full bg-[#060608] text-[#F3F2EE] py-14 sm:py-24 px-4 sm:px-12 lg:px-20 z-20"
             aria-label="Selected Projects Archive"
         >
             {/* Ambient Background Aura */}
@@ -478,7 +478,7 @@ export default function ProjectsSection() {
                     {PROJECTS_DATA.map((project, idx) => (
                         <div
                             key={project.id}
-                            className="project-stack-card md:sticky top-24 rounded-2xl bg-[#0B0E17]/95 border border-white/10 p-6 sm:p-8 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-300 hover:border-white/20 will-change-transform"
+                            className="project-stack-card md:sticky top-24 rounded-2xl bg-[#0B0E17]/95 border border-white/10 p-5 sm:p-8 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-300 hover:border-white/20 will-change-transform"
                             style={{
                                 boxShadow: `0 20px 50px rgba(0,0,0,0.85), 0 0 30px ${project.glowColor}`,
                             }}

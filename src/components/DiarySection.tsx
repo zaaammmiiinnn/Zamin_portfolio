@@ -117,14 +117,14 @@ export default function DiarySection() {
         <section
             ref={diaryRef}
             id="diary"
-            className="diary relative w-full min-h-screen bg-[#060608] text-[#F3F2EE] z-20 py-20 md:py-0 overflow-hidden flex flex-col justify-between"
+            className="diary relative w-full min-h-screen bg-[#060608] text-[#F3F2EE] z-20 py-10 md:py-0 overflow-hidden flex flex-col justify-between"
             aria-label="Engineering Diary and Sticky Notes"
         >
             {/* Ambient desk background with subtle grid lines */}
             <div className="pointer-events-none absolute inset-0 opacity-[0.03] bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
 
             {/* Top Header / Index Bar */}
-            <div className="z-10 w-full max-w-6xl mx-auto px-6 sm:px-12 pt-8 pb-4 border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-4">
+            <div className="z-10 w-full max-w-6xl mx-auto px-4 sm:px-12 pt-6 pb-4 border-b border-white/[0.08] flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
                     <span className="font-mono text-xs text-blue-400 font-semibold tracking-widest uppercase">
                         [02.DIARY]
@@ -165,7 +165,7 @@ export default function DiarySection() {
             </div>
 
             {/* Scattered Notes Container (Desktop: Pinned Canvas; Mobile: Stacked Vertical Flow) */}
-            <div className="relative w-full max-w-6xl mx-auto my-auto px-6 sm:px-12 py-10 min-h-[720px] md:h-[720px] flex flex-col md:block gap-8 md:gap-0">
+            <div className="relative w-full max-w-6xl mx-auto px-4 sm:px-12 py-6 md:py-10 md:my-auto md:h-[720px] flex flex-col md:block gap-6 md:gap-0">
                 
                 {/* NOTE 1: TECH STACK */}
                 <div
@@ -174,7 +174,7 @@ export default function DiarySection() {
                     aria-label="Tech Stack Note"
                     onFocus={() => setFocusedIndex(0)}
                     onBlur={() => setFocusedIndex(null)}
-                    className={`diary-note diary-note-0 md:absolute md:top-6 md:left-4 lg:left-8 w-full md:w-[380px] p-6 bg-[#0E1118]/95 border border-blue-500/30 shadow-[0_16px_36px_rgba(0,0,0,0.65),0_0_20px_rgba(0,102,255,0.12)] rounded-sm rotate-[-2deg] transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer ${
+                    className={`diary-note diary-note-0 md:absolute md:top-6 md:left-4 lg:left-8 w-full md:w-[380px] p-5 sm:p-6 bg-[#0E1118]/95 border border-blue-500/30 shadow-[0_16px_36px_rgba(0,0,0,0.65),0_0_20px_rgba(0,102,255,0.12)] rounded-sm rotate-0 md:rotate-[-2deg] transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer ${
                         focusedIndex === 0 ? "!opacity-100 !blur-0 !scale-105 !z-30 ring-1 ring-blue-400" : ""
                     }`}
                 >
@@ -195,14 +195,14 @@ export default function DiarySection() {
                         Technologies verified in production and autonomous flight testing pipelines:
                     </p>
 
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                         {techStack.map(({ name, Icon, color }) => (
                             <div
                                 key={name}
                                 className="flex items-center gap-1.5 p-2 rounded bg-white/[0.02] border border-white/[0.06] hover:border-blue-500/40 transition-colors"
                             >
                                 <Icon className="w-3.5 h-3.5 shrink-0" style={{ color }} />
-                                <span className="font-mono text-[10px] text-white/80 truncate">{name}</span>
+                                <span className="font-mono text-[10px] text-white/80 whitespace-nowrap">{name}</span>
                             </div>
                         ))}
                     </div>
@@ -220,7 +220,7 @@ export default function DiarySection() {
                     aria-label="Origin Story Note"
                     onFocus={() => setFocusedIndex(1)}
                     onBlur={() => setFocusedIndex(null)}
-                    className={`diary-note diary-note-1 md:absolute md:top-4 md:right-4 lg:right-10 w-full md:w-[410px] p-6 bg-[#10141F]/95 border border-white/15 shadow-[0_18px_40px_rgba(0,0,0,0.7),0_0_20px_rgba(59,130,246,0.1)] rounded-sm rotate-[2.5deg] transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer ${
+                    className={`diary-note diary-note-1 md:absolute md:top-4 md:right-4 lg:right-10 w-full md:w-[410px] p-5 sm:p-6 bg-[#10141F]/95 border border-white/15 shadow-[0_18px_40px_rgba(0,0,0,0.7),0_0_20px_rgba(59,130,246,0.1)] rounded-sm rotate-0 md:rotate-[2.5deg] transition-all duration-300 outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer ${
                         focusedIndex === 1 ? "!opacity-100 !blur-0 !scale-105 !z-30 ring-1 ring-blue-400" : ""
                     }`}
                 >
@@ -266,7 +266,7 @@ export default function DiarySection() {
                     aria-label="Current Focus Note"
                     onFocus={() => setFocusedIndex(2)}
                     onBlur={() => setFocusedIndex(null)}
-                    className={`diary-note diary-note-2 md:absolute md:top-[28%] md:left-1/2 md:-translate-x-1/2 w-full md:w-[440px] p-6 bg-[#0B1324]/95 border border-indigo-500/40 shadow-[0_20px_45px_rgba(0,0,0,0.75),0_0_25px_rgba(99,102,241,0.2)] rounded-sm rotate-[-1.5deg] transition-all duration-300 outline-none focus:ring-2 focus:ring-indigo-400 cursor-pointer ${
+                    className={`diary-note diary-note-2 md:absolute md:top-[28%] md:left-1/2 md:-translate-x-1/2 w-full md:w-[440px] p-5 sm:p-6 bg-[#0B1324]/95 border border-indigo-500/40 shadow-[0_20px_45px_rgba(0,0,0,0.75),0_0_25px_rgba(99,102,241,0.2)] rounded-sm rotate-0 md:rotate-[-1.5deg] transition-all duration-300 outline-none focus:ring-2 focus:ring-indigo-400 cursor-pointer ${
                         focusedIndex === 2 ? "!opacity-100 !blur-0 !scale-105 !z-30 ring-1 ring-indigo-400" : ""
                     }`}
                 >
@@ -333,7 +333,7 @@ export default function DiarySection() {
                     aria-label="Personal Ritual Note"
                     onFocus={() => setFocusedIndex(3)}
                     onBlur={() => setFocusedIndex(null)}
-                    className={`diary-note diary-note-3 md:absolute md:bottom-6 md:left-6 lg:left-14 w-full md:w-[360px] p-6 bg-[#121015]/95 border border-amber-500/25 shadow-[0_16px_36px_rgba(0,0,0,0.65),0_0_20px_rgba(245,158,11,0.1)] rounded-sm rotate-[1.8deg] transition-all duration-300 outline-none focus:ring-2 focus:ring-amber-400 cursor-pointer ${
+                    className={`diary-note diary-note-3 md:absolute md:bottom-6 md:left-6 lg:left-14 w-full md:w-[360px] p-5 sm:p-6 bg-[#121015]/95 border border-amber-500/25 shadow-[0_16px_36px_rgba(0,0,0,0.65),0_0_20px_rgba(245,158,11,0.1)] rounded-sm rotate-0 md:rotate-[1.8deg] transition-all duration-300 outline-none focus:ring-2 focus:ring-amber-400 cursor-pointer ${
                         focusedIndex === 3 ? "!opacity-100 !blur-0 !scale-105 !z-30 ring-1 ring-amber-400" : ""
                     }`}
                 >
@@ -375,7 +375,7 @@ export default function DiarySection() {
                     aria-label="Currently Learning Note"
                     onFocus={() => setFocusedIndex(4)}
                     onBlur={() => setFocusedIndex(null)}
-                    className={`diary-note diary-note-4 md:absolute md:bottom-4 md:right-6 lg:right-12 w-full md:w-[390px] p-6 bg-[#08151D]/95 border border-emerald-500/30 shadow-[0_16px_36px_rgba(0,0,0,0.65),0_0_20px_rgba(16,185,129,0.12)] rounded-sm rotate-[-2.8deg] transition-all duration-300 outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer ${
+                    className={`diary-note diary-note-4 md:absolute md:bottom-4 md:right-6 lg:right-12 w-full md:w-[390px] p-5 sm:p-6 bg-[#08151D]/95 border border-emerald-500/30 shadow-[0_16px_36px_rgba(0,0,0,0.65),0_0_20px_rgba(16,185,129,0.12)] rounded-sm rotate-0 md:rotate-[-2.8deg] transition-all duration-300 outline-none focus:ring-2 focus:ring-emerald-400 cursor-pointer ${
                         focusedIndex === 4 ? "!opacity-100 !blur-0 !scale-105 !z-30 ring-1 ring-emerald-400" : ""
                     }`}
                 >
@@ -424,7 +424,7 @@ export default function DiarySection() {
             </div>
 
             {/* Bottom Footer Telemetry */}
-            <div className="z-10 w-full max-w-6xl mx-auto px-6 sm:px-12 pt-4 pb-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[11px] text-white/40">
+            <div className="z-10 w-full max-w-6xl mx-auto px-4 sm:px-12 pt-4 pb-4 border-t border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 font-mono text-[11px] text-white/40">
                 <div className="flex items-center gap-3">
                     <span className="text-blue-400">STATUS:</span>
                     <span>DIARY ENTRIES SYNCHRONIZED</span>

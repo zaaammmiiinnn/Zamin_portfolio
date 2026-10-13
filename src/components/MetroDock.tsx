@@ -103,7 +103,7 @@ export default function MetroDock() {
     return (
         <nav
             aria-label="Metro Line Navigation"
-            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 max-w-[94vw] pointer-events-auto"
+            className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 max-w-[94vw] pointer-events-auto hidden md:block"
         >
             <div className="relative px-3.5 sm:px-6 py-2.5 rounded-full bg-[#08080C]/90 backdrop-blur-xl border border-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.65),0_0_20px_rgba(0,102,255,0.15)] flex items-center gap-1.5 sm:gap-4">
                 {/* Connecting Transit Line behind station nodes */}

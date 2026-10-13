@@ -101,7 +101,7 @@ export default function Hero() {
         <section
             ref={heroRef}
             id="hero"
-            className="hero relative w-full min-h-screen overflow-hidden bg-[#060608] text-[#F3F2EE] flex flex-col justify-between pt-28 pb-12 px-6 sm:px-12 lg:px-20 select-none"
+            className="hero relative w-full min-h-screen overflow-hidden bg-[#060608] text-[#F3F2EE] flex flex-col justify-between pt-28 pb-12 px-4 sm:px-12 lg:px-20 select-none"
             aria-label="Hero Section"
         >
             {/* 1. Cinematic Silhouette Visual Background (Blue Theme) */}
@@ -228,12 +228,12 @@ export default function Hero() {
             {/* 5. Hero Title & Narrative Content (Fades out & moves up on scroll) */}
             <div className="hero-title z-10 w-full max-w-6xl mx-auto my-auto py-8 sm:py-12 space-y-8 select-text">
                 <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                        <span className="font-mono text-xs tracking-[0.3em] uppercase text-blue-400 font-medium">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+                        <span className="font-mono text-xs tracking-[0.25em] sm:tracking-[0.3em] uppercase text-blue-400 font-medium">
                             ZAMIN ASKARI RIZVI
                         </span>
-                        <span className="text-white/20">•</span>
-                        <span className="font-mono text-xs tracking-[0.25em] uppercase text-white/40">
+                        <span className="text-white/20 hidden sm:inline">•</span>
+                        <span className="font-mono text-xs tracking-[0.18em] sm:tracking-[0.25em] uppercase text-white/40">
                             AI SYSTEMS &amp; FULL-STACK ARCHITECT
                         </span>
                     </div>
