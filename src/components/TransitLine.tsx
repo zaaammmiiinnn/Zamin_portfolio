@@ -48,7 +48,7 @@ export default function TransitLine() {
     return (
         <div
             ref={containerRef}
-            className="pointer-events-none fixed inset-0 z-10 overflow-hidden hidden md:block"
+            className="pointer-events-none fixed inset-0 z-10 overflow-hidden opacity-35 md:opacity-100"
             aria-hidden="true"
         >
             <svg

@@ -84,13 +84,25 @@ export default function Hero() {
                   .to(".hero-title", { y: -100, opacity: 0, ease: "none" }, 0);
             });
 
-            // Mobile (< 768px): No pinning. Just a clean fade-in
+            // Mobile (< 768px): Entrance animation + smooth scroll scrub parallax
             mm.add("(max-width: 767px)", () => {
                 gsap.fromTo(
                     ".hero-title",
                     { opacity: 0, y: 24 },
                     { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" }
                 );
+
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: heroRef.current,
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: true,
+                    },
+                });
+
+                tl.to(".hero-title", { y: -60, opacity: 0.25, scale: 0.97, ease: "none" }, 0)
+                  .to(".hero-smoke", { scale: 1.25, opacity: 0.5, ease: "none" }, 0);
             });
         }, heroRef);
 

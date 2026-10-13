@@ -84,14 +84,35 @@ export default function DiarySection() {
                   .to(".diary-note-4", { filter: "blur(0px)", opacity: 1, scale: 1.04, zIndex: 25, duration: 1 }, 3.5);
             });
 
-            // Mobile (< 768px): No pinning, no blur effect, clean vertical layout
+            // Mobile (< 768px): Scroll-driven spotlight on active diary note + telemetry sync
             mm.add("(max-width: 767px)", () => {
-                gsap.set(".diary-note", {
-                    filter: "none",
-                    opacity: 1,
-                    scale: 1,
-                    zIndex: 1,
-                    clearProps: "all",
+                const notes = gsap.utils.toArray<HTMLElement>(".diary-note");
+
+                notes.forEach((note, index) => {
+                    ScrollTrigger.create({
+                        trigger: note,
+                        start: "top 60%",
+                        end: "bottom 40%",
+                        onEnter: () => setActiveScrollNote(index),
+                        onEnterBack: () => setActiveScrollNote(index),
+                    });
+
+                    gsap.fromTo(
+                        note,
+                        { opacity: 0.5, scale: 0.96, y: 20 },
+                        {
+                            opacity: 1,
+                            scale: 1,
+                            y: 0,
+                            ease: "power2.out",
+                            scrollTrigger: {
+                                trigger: note,
+                                start: "top 88%",
+                                end: "top 45%",
+                                scrub: 0.6,
+                            },
+                        }
+                    );
                 });
             });
         }, diaryRef);

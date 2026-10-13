@@ -124,13 +124,27 @@ export default function MetroSection() {
                 });
             });
 
-            // Mobile (< 768px): No horizontal scroll, clean vertical stack
+            // Mobile (< 768px): Progressive station billboard illumination on scroll
             mm.add("(max-width: 767px)", () => {
-                gsap.set(".metro-billboard", {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    clearProps: "all",
+                const billboards = gsap.utils.toArray<HTMLElement>(".metro-billboard");
+
+                billboards.forEach((b) => {
+                    gsap.fromTo(
+                        b,
+                        { opacity: 0.45, y: 25, scale: 0.96 },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            scale: 1,
+                            ease: "power2.out",
+                            scrollTrigger: {
+                                trigger: b,
+                                start: "top 88%",
+                                end: "top 50%",
+                                scrub: 0.6,
+                            },
+                        }
+                    );
                 });
             });
         }, metroRef);

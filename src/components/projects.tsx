@@ -376,9 +376,27 @@ export default function ProjectsSection() {
                 });
             });
 
-            // Mobile (< 768px): Natural vertical flow
+            // Mobile (< 768px): Dynamic card stacking scrub
             mm.add("(max-width: 767px)", () => {
-                gsap.set(".project-stack-card", { clearProps: "all" });
+                const cards = gsap.utils.toArray<HTMLElement>(".project-stack-card");
+
+                cards.forEach((card, index) => {
+                    if (index < cards.length - 1) {
+                        const nextCard = cards[index + 1];
+                        gsap.to(card, {
+                            scale: 0.94,
+                            opacity: 0.35,
+                            y: -12,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: nextCard,
+                                start: "top 80%",
+                                end: "top 30%",
+                                scrub: true,
+                            },
+                        });
+                    }
+                });
             });
         }, sectionRef);
 
@@ -478,7 +496,7 @@ export default function ProjectsSection() {
                     {PROJECTS_DATA.map((project, idx) => (
                         <div
                             key={project.id}
-                            className="project-stack-card md:sticky top-24 rounded-2xl bg-[#0B0E17]/95 border border-white/10 p-5 sm:p-8 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-300 hover:border-white/20 will-change-transform"
+                            className="project-stack-card sticky top-20 sm:top-24 rounded-2xl bg-[#0B0E17]/95 border border-white/10 p-5 sm:p-8 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.85)] transition-all duration-300 hover:border-white/20 will-change-transform"
                             style={{
                                 boxShadow: `0 20px 50px rgba(0,0,0,0.85), 0 0 30px ${project.glowColor}`,
                             }}
