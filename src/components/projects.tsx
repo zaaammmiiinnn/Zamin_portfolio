@@ -97,8 +97,116 @@ export const PROJECTS_DATA: ProjectItem[] = [
         isFeatured: true,
     },
     {
-        id: "dubai-enterprise-agent",
+        id: "voice-ai-restaurant-ordering",
         num: "03",
+        category: "VOICE AI & CONVERSATIONAL COMMERCE",
+        title: "Voice-Based AI Ordering System for Restaurants",
+        subtitle: "Full-Duplex Voice & WhatsApp Ordering Assistant for Dining Outlets",
+        description:
+            "An ultra-responsive voice and WhatsApp ordering assistant architected for restaurants, cloud kitchens, bakeries, cafes, and takeaway counters. Seamlessly handles complex menu questions, checks live item availability, manages add-ons and exclusions, confirms exact quantities, and forwards finalized tickets directly to Kitchen Display Systems (KDS).",
+        architecture:
+            "Built with Python, FastAPI, and OpenAI Whisper speech-to-text paired with ElevenLabs low-latency voice streaming. Orchestrates WhatsApp Business Cloud API webhooks with a semantic RAG menu reasoning engine, enforcing strict JSON schema order validation against restaurant POS databases.",
+        metrics: [
+            { label: "Voice Latency", value: "< 420ms", detail: "Speech recognition to audio reply turnaround" },
+            { label: "Order Accuracy", value: "99.2%", detail: "Zero hallucination modifier & cart capture" },
+            { label: "Ticket Dispatch", value: "Real-time", detail: "Direct webhook sync to POS & kitchen printers" },
+        ],
+        innovations: [
+            "Dual-channel state engine bridging phone calls and WhatsApp receipts",
+            "Context-aware dietary, allergen, and calorie answering using semantic vector search",
+            "Automated upsell engine suggesting complementary side items and beverages",
+        ],
+        technologies: ["Python", "FastAPI", "OpenAI Whisper", "ElevenLabs", "Twilio Voice", "WhatsApp Cloud API", "LangChain", "PostgreSQL"],
+        github: "https://github.com/zaaammmiiinnn",
+        liveUrl: "https://neuralwaves.in",
+        accentColor: "#10B981",
+        glowColor: "rgba(16, 185, 129, 0.4)",
+        isFeatured: false,
+    },
+    {
+        id: "ai-video-ad-generator",
+        num: "04",
+        category: "GENERATIVE VISION & VIDEO AUTOMATION",
+        title: "AI Video Ad Generator for Reels and Shorts",
+        subtitle: "Algorithmic Short-Form Video Ad Creation Engine for Meta & YouTube",
+        description:
+            "A programmatic short-form ad creation platform that converts static product images, promotional offers, brand tone, and CTA text into high-converting video ads for Instagram Reels, YouTube Shorts, and Meta campaigns. Automatically generates dynamic storyboards, text overlays, kinetic transitions, and synced voiceovers.",
+        architecture:
+            "Orchestrates Next.js 16, Python, and a Remotion/FFmpeg headless video rendering engine. Employs GPT-4o Vision to analyze product photography, auto-scripts viral hook-body-CTA structures, synthesizes broadcast voiceovers with ElevenLabs, and compiles 1080x1920 60 FPS vertical video assets in under 35 seconds.",
+        metrics: [
+            { label: "Render Time", value: "< 35s", detail: "Per completed 1080x1920 30s vertical ad" },
+            { label: "CTR Lift", value: "+44%", detail: "Compared to static image ad creatives" },
+            { label: "Form Factors", value: "9:16 & 1:1", detail: "Reels, Shorts, TikTok & Meta feeds" },
+        ],
+        innovations: [
+            "Algorithmic storyboard composition utilizing viral hook-retention pacing curves",
+            "Headless programmatic rendering with word-level animated subtitle alignment",
+            "Automated brand safety preserving logo safe-zones and typography constraints",
+        ],
+        technologies: ["Next.js 16", "Python", "Remotion", "FFmpeg", "MoviePy", "GPT-4o Vision", "ElevenLabs", "AWS S3"],
+        github: "https://github.com/zaaammmiiinnn",
+        liveUrl: "https://neuralwaves.in",
+        accentColor: "#F59E0B",
+        glowColor: "rgba(245, 158, 11, 0.4)",
+        isFeatured: false,
+    },
+    {
+        id: "whatsapp-catalog-sales-automation",
+        num: "05",
+        category: "CONVERSATIONAL COMMERCE & CATALOG AUTOMATION",
+        title: "WhatsApp Catalog Upload & Sales Automation System",
+        subtitle: "Centralized Product Catalog Sync & AI In-Chat Checkout Closer",
+        description:
+            "A WhatsApp commerce management platform that centralizes retail product catalogs and empowers teams to share accurate product info instantly with buyers. Synchronizes SKUs, pricing, categories, stock availability, multi-angle images, and rich descriptions with Meta WhatsApp Catalog, backed by an automated closer agent.",
+        architecture:
+            "Constructed on Next.js, Node.js/Python microservices, and Redis. Connects with Meta Graph Catalog APIs for bidirectional inventory sync and real-time webhook updates, with semantic search for instant product recommendations and native payment link dispatches.",
+        metrics: [
+            { label: "Catalog Sync", value: "< 2s", detail: "Instant SKU and inventory propagation" },
+            { label: "In-Chat Checkout", value: "+32%", detail: "Cart-to-payment conversion uplift" },
+            { label: "Catalog Scale", value: "10,000+ SKUs", detail: "Bulk indexed items with instant vector search" },
+        ],
+        innovations: [
+            "Bi-directional synchronization between backend inventory and Meta Catalog",
+            "Contextual conversational product matching with automated cross-sell triggers",
+            "Frictionless checkout handoff generating localized payment gateways in chat",
+        ],
+        technologies: ["TypeScript", "Python", "FastAPI", "Meta Graph API", "WhatsApp Commerce", "PostgreSQL", "Redis", "Stripe API"],
+        github: "https://github.com/zaaammmiiinnn",
+        liveUrl: "https://neuralwaves.in",
+        accentColor: "#06B6D4",
+        glowColor: "rgba(6, 182, 212, 0.4)",
+        isFeatured: false,
+    },
+    {
+        id: "ai-multichannel-lead-nurturing",
+        num: "06",
+        category: "OMNICHANNEL AI WORKFLOWS & CRM",
+        title: "AI-Powered Multi-Channel Lead Follow-Up Builder",
+        subtitle: "Autonomous Context-Aware Lead Nurturing Across WhatsApp, SMS & Email",
+        description:
+            "An intelligent lead nurturing automation system that sends structured, context-aware follow-up sequences across WhatsApp, SMS, email, and automated call reminders. Follow-ups are dynamically triggered based on lead source, funnel stage, customer responsiveness, and expressed objections to eliminate lead leakage.",
+        architecture:
+            "DAG workflow orchestrator implemented in Python, FastAPI, Celery, and Next.js. Employs LLM semantic classification on incoming prospect replies to evaluate buying intent, dynamically branching the follow-up path, adjusting delays, and updating CRM records in real time.",
+        metrics: [
+            { label: "Lead Re-Engagement", value: "+52%", detail: "Uplift in cold lead revival" },
+            { label: "Channels Orchestrated", value: "4 Unified", detail: "WhatsApp, SMS, Email, Voice Calls" },
+            { label: "Zero Lead Leakage", value: "100%", detail: "Zero inbound inquiries un-contacted" },
+        ],
+        innovations: [
+            "Sentiment-driven adaptive follow-up cadences tailored to customer replies",
+            "Omnichannel state machine eliminating duplicated or conflicting touches",
+            "Automated CRM stage synchronization with automated calendar reservation",
+        ],
+        technologies: ["Python", "FastAPI", "Celery", "Redis", "WhatsApp Cloud API", "Twilio SMS", "SendGrid", "PostgreSQL"],
+        github: "https://github.com/zaaammmiiinnn",
+        liveUrl: "https://neuralwaves.in",
+        accentColor: "#EC4899",
+        glowColor: "rgba(236, 72, 153, 0.4)",
+        isFeatured: false,
+    },
+    {
+        id: "dubai-enterprise-agent",
+        num: "07",
         category: "AUTONOMOUS AGENT SYSTEM",
         title: "Dubai Enterprise Multi-Tool Concierge & Lead Agent",
         subtitle: "Bilingual Arabic/English Autonomous CRM & Qualification Engine",
@@ -125,7 +233,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
     {
         id: "ai-resume-analyzer",
-        num: "04",
+        num: "08",
         category: "AI / NLP ENGINE",
         title: "AI Resume Analyzer & Matcher",
         subtitle: "Autonomous Candidate Parsing & Semantic Skills Evaluation Matrix",
@@ -152,7 +260,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
     {
         id: "ardupilot-vision",
-        num: "05",
+        num: "09",
         category: "ROBOTICS & COMPUTER VISION",
         title: "GSOC ArduPilot Autonomous Vision",
         subtitle: "Real-Time Aerial Optical Tracking & Telemetry Navigation System",
@@ -179,7 +287,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     },
     {
         id: "sentiment-classification",
-        num: "06",
+        num: "10",
         category: "DEEP LEARNING / NLP",
         title: "Sentiment Neural Embeddings",
         subtitle: "Contextual Vector Spaces & High-Throughput Classification Pipeline",
@@ -339,7 +447,7 @@ export default function ProjectsSection() {
                                     RECRUITER FAST-TRACK
                                 </span>
                                 <p className="text-xs sm:text-sm text-white/80 font-light">
-                                    Short on time? Jump straight to <span className="font-medium text-white">AI Resume Analyzer</span> — my strongest end-to-end work.
+                                    Short on time? Jump straight to <span className="font-medium text-white">NeuralWaves</span> — my flagship multi-agent AI agency platform.
                                 </p>
                             </div>
                         </div>
@@ -349,7 +457,7 @@ export default function ProjectsSection() {
                             onClick={openFeaturedModal}
                             className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-mono text-xs font-semibold shadow-[0_4px_15px_rgba(0,102,255,0.4)] transition-all cursor-pointer whitespace-nowrap focus:ring-2 focus:ring-blue-400 outline-none"
                         >
-                            <span>Inspect AI Resume Analyzer</span>
+                            <span>Inspect NeuralWaves Platform</span>
                             <FaArrowRight className="w-3 h-3" />
                         </button>
                     </div>
